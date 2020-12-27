@@ -6,18 +6,16 @@ router.get('/', function(req, res, next) {
   res.setHeader('Content-Type', 'image/svg+xml');
 
   let points = [
-    [0,0],
-    [100,0],
-    [100,100],
-    [0,100]
+    "M 0 0",
+    "l 100 100",
+    "l -100 0",
+    "l -100 -100"
   ]
-
-  points = points.map(coordinates => coordinates.join(','));
 
   const data = {
     stroke: "#ccc",
     fill: "#ff3",
-    points: points.join(' ')
+    commands: points.join(' ')
   }
 
   res.render('svg', { ...data, layout: false });

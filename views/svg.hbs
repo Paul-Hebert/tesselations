@@ -5,5 +5,9 @@
   height='100' 
   viewPort='0 0 100 100'
 >
-  <polygon stroke="{{stroke}}" fill="{{fill}}" points="{{points}}"></polygon>
+  <path stroke="{{stroke}}" fill="{{fill}}" d="{{commands}}" id="root"></path>
+  <use href="#root" x="100"/>
+  <use href="#root" x="-100"/>
+  <use href="#root" y="100"/>
+  <use href="#root" y="-100"/>
 </svg>
