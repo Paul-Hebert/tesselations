@@ -36,15 +36,17 @@ router.get('/', function(req, res, next) {
     ...addSide({commands: sideCommands, reverse:  true}),
   ];
 
+  const offset = {x: 0, y: 0};
+
   const data = {
     stroke: "#ccc",
     fill: "#3ff",
     commands: commands.join(' '),
     usePositions: [
-      {x: 100, y: 0},
-      {x: -100, y: 0},
-      {x: 0, y: 100},
-      {x: 0, y: -100}
+      {x: 100, y: offset.y, fill: '#f00'},
+      {x: -100, y: offset.y, fill: '#0f0'},
+      {x: offset.x, y: 100, fill: '#00f'},
+      {x: offset.x, y: -100, fill: '#ccc'}
     ]
   }
 
