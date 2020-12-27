@@ -19,13 +19,14 @@ router.get('/', function(req, res, next) {
 
   const endCommands = [
     {x: 20, y: -20},
-    {x: 10, y: 30},
-    {x: 25, y: 5},
+    {x: 10, y: 35},
+    {x: 25, y: 35},
     {x: 45, y: -50}
   ];
 
   const sideCommands = [
-    {x: 10, y: 100},
+    {x: 10, y: 30},
+    {x: -10, y: 70},
   ];
 
   let commands = [
@@ -40,13 +41,13 @@ router.get('/', function(req, res, next) {
 
   const data = {
     stroke: "#ccc",
-    fill: "#3ff",
+    fill: "#c00",
     commands: commands.join(' '),
     usePositions: [
-      {x: 100, y: offset.y, fill: '#f00'},
-      {x: -100, y: offset.y, fill: '#0f0'},
-      {x: offset.x, y: 100, fill: '#00f'},
-      {x: offset.x, y: -100, fill: '#ccc'}
+      {x: 100, y: offset.y},
+      {x: -100, y: offset.y},
+      {x: offset.x, y: 100},
+      {x: offset.x, y: -100}
     ]
   }
 
