@@ -13,17 +13,29 @@ function addSide({ commands, reverse = false}) {
   });
 }
 
+function randomHsl() {
+  return 'hsla(' + (Math.random() * 360) + ', 70%, 30%, 1)';
+}
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.setHeader('Content-Type', 'image/svg+xml');
 
+  // Our paths are made up of a series of pen movements.
+  // Right now, the pen always needs to end in a corner,
+  // so, for example, all of our x movement needs to equal 100,
+  // and all of our y movement needs to equal 0.
+  // In the future we can explore more flexibility
+  // by adding more `use` elements, and offsetting their positions.
+
+  // Plan the movement of the pen along the top ends
   const endCommands = [
     {x: 20, y: -20},
     {x: 10, y: 35},
     {x: 25, y: 35},
     {x: 45, y: -50}
   ];
-
+  // Plan the movement of the pen along the sides
   const sideCommands = [
     {x: 10, y: 30},
     {x: -10, y: 70},
@@ -40,8 +52,9 @@ router.get('/', function(req, res, next) {
   const offset = {x: 0, y: 0};
 
   const data = {
-    stroke: "#ccc",
-    fill: "#c00",
+    stroke: 'rgba(255, 255, 255, 1)',
+    strokeWidth: Math.random() * 8,
+    fill: randomHsl(),
     commands: commands.join(' '),
     usePositions: [
       {x: 100, y: offset.y},

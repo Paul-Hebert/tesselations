@@ -7,7 +7,13 @@
   {{!-- The viewbox below is useful for debugging single SVGs --}}
   {{!-- viewBox='-200 -200 400 400' --}}
 >
-  <path stroke="{{stroke}}" fill="{{fill}}" d="{{commands}}" id="root"></path>
+  <path 
+    stroke="{{stroke}}" 
+    stroke-width="{{strokeWidth}}"
+    fill="{{fill}}" 
+    d="{{commands}}" 
+    id="root">
+  </path>
   {{#each usePositions}}
     <use href="#root" x="{{x}}" y="{{y}}" fill="{{fill}}"/>
   {{/each}}
