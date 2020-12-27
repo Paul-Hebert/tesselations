@@ -1,7 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+function addSide({ commands, reverse = false}) {
+  const multiplier = reverse ? -1 : 1;
 
+  if(reverse) {
+    commands = commands.reverse();
+  }
+
+  return commands.map(command => {
+    return `l ${command.x * multiplier} ${command.y * multiplier}`
+  });
+}
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -20,23 +30,11 @@ router.get('/', function(req, res, next) {
 
   let commands = [
     "M 0 0",
+    ...addSide({commands: endCommands}),
+    ...addSide({commands: sideCommands}),
+    ...addSide({commands: endCommands, reverse: true}),
+    ...addSide({commands: sideCommands, reverse:  true}),
   ];
-
-  endCommands.forEach(command => {
-    commands.push(`l ${command.x} ${command.y}`);
-  });
-
-  sideCommands.forEach(command => {
-    commands.push(`l ${command.x} ${command.y}`);
-  });
-
-  [...endCommands.reverse()].forEach(command => {
-    commands.push(`l ${command.x * -1} ${command.y * -1}`);
-  });
-
-  [...sideCommands.reverse()].forEach(command => {
-    commands.push(`l ${command.x * -1} ${command.y * -1}`);
-  });
 
   const data = {
     stroke: "#ccc",
