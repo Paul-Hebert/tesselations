@@ -20,8 +20,12 @@ router.get('/', function(req, res, next) {
     lightness: Math.random() * 25 + 25,
   }
 
+  // Either use the same hue or a complementary hue for the stroke.
+  let strokeHue = randomBool() ? fill.hue : fill.hue + 180;
+  if(strokeHue > 360) strokeHue -= 360;
+
   const stroke = {
-    hue: fill.hue,
+    hue: strokeHue,
     saturation: plusOrMinus(fill.saturation, Math.random() * 25),
     lightness: plusOrMinus(fill.lightness, Math.random() * 25),
   }

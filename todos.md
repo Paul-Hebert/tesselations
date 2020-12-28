@@ -1,8 +1,8 @@
 ## Randomization
 
 - Add curved sides
-- Add complementary color scheme option
 - Add more randomness to # of points
+- Fine tune color generation
 
 ## App UI
 
@@ -16,3 +16,4 @@
 
 - Sometimes there are transparent sections in designs. I think this is due to the secondary axis going past the other end.
 - Sometimes the stroked don't contrast well enough.
+- Are complementary colors too intense? Should these be less common? Less saturated? Less bright?
