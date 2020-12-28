@@ -26,16 +26,21 @@ router.get('/', function(req, res, next) {
     lightness: plusOrMinus(fill.lightness, Math.random() * 25),
   }
 
+  const height = 30 + Math.random() * 130;
+  const width = 30 + Math.random() * 130;
+
   const data = {
+    height,
+    width,
     fill: hsla(fill),
     stroke: hsla(stroke),
-    strokeWidth: 1 + Math.random() * 30,
-    commands: generateCommands(100),
+    strokeWidth: 1 + Math.random() * Math.min(height, width) * 1/2,
+    commands: generateCommands(width, height),
     usePositions: [
-      {x: 100, y: 0},
-      {x: -100, y: 0},
-      {x: 0, y: 100},
-      {x: 0, y: -100}
+      {x: width, y: 0},
+      {x: width * -1, y: 0},
+      {x: 0, y: height},
+      {x: 0, y: height * -1}
     ]
   }
 

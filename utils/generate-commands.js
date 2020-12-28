@@ -36,7 +36,7 @@ function generateCommandsForSide(length, mainAxis, secondAxis) {
       command[secondAxis] = secondaryAxisDrift * -1;
     } else {
       const multiplier = randomBool() ? 1 : -1;
-      const change = Math.random() * 30 * multiplier;
+      const change = Math.random() * length/4 * multiplier;
       secondaryAxisDrift += change;
       command[secondAxis] = change;
     }
@@ -57,18 +57,16 @@ function addSide({ commands, reverse = false}) {
   });
 }
 
-module.exports = function(length) {
-  // Our paths are made up of a series of pen movements.
-  // Right now, the pen always needs to end in a corner,
-  // so, for example, all of our x movement needs to equal 100,
-  // and all of our y movement needs to equal 0.
-  // In the future we can explore more flexibility
-  // by adding more `use` elements, and offsetting their positions.
+module.exports = function(width, height) {
+  // Our paths are made up of a series of pen movements. The pen always needs 
+  // to end in a corner, so, for example, when creating a horizontal line, 
+  // all of our x movement needs to equal our width, and all of our y movement
+  // needs to equal 0.
 
   // Plan the movement of the pen along the top ends
-  const endCommands = generateCommandsForSide(100, 'x', 'y');
+  const endCommands = generateCommandsForSide(width, 'x', 'y');
   // Plan the movement of the pen along the sides
-  const sideCommands = generateCommandsForSide(100, 'y', 'x');
+  const sideCommands = generateCommandsForSide(height, 'y', 'x');
 
   return [
     "M 0 0",
