@@ -1,3 +1,7 @@
+body {
+  background: #333;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,6 +13,7 @@
 
 .tesselation {
   background-image: '/svg';
-  padding-top: 50%;
-  width: 33%;
+  height: 28vh;
+  width: 31%;
+  margin: 1%
 }

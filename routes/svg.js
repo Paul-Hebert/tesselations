@@ -27,8 +27,8 @@ function randomCommands(length, mainAxis, secondAxis) {
 
   // Generate a random array of numbers that will add up to our total length
   while(lengthRemaining > 0) {
-    if(lengthRemaining > length / 10) {
-      // If we've got a ways to go choose a random numbn
+    if(lengthRemaining > length / 5) {
+      // If we've got a ways to go choose a random number
       newLength = Math.random() * lengthRemaining;
     } else {
       // If we're close to our length, just use the remaining length
@@ -43,17 +43,27 @@ function randomCommands(length, mainAxis, secondAxis) {
     commands.push(newCommand);
   }
 
+  console.log(
+    commands.reduce((a, b) => a + b[mainAxis], 0)
+  )
+
   // Randomize the order of our commands
   commands.sort((a, b) => randomBool() ? 1 : -1);
 
-  const secondaryAxisDrift = 0;
+  // For each of our commands along the primary axis, define how it should move
+  // along the secondary axis.
+  // For now all of the secondary axis movement has to add up to 0,
+  // but that may change in the future.
+  let secondaryAxisDrift = 0;
 
   commands.forEach(function(command, index, array){
     if (index === array.length - 1){ 
       command[secondAxis] = secondaryAxisDrift * -1;
     } else {
       const multiplier = randomBool() ? 1 : -1;
-      command[secondAxis] = Math.random() * 30 * multiplier;
+      const change = Math.random() * 30 * multiplier;
+      secondaryAxisDrift += change;
+      command[secondAxis] = change;
     }
  });
 
