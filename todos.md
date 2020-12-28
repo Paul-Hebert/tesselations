@@ -2,8 +2,7 @@
 
 - Add curved sides
 - Add complementary color scheme option
-- Add more randmoness to # of points
-- Make random width and height
+- Add more randomness to # of points
 
 ## App UI
 
@@ -12,3 +11,8 @@
 - Create detail pages
 - Add CSS background code
 - Add editing controls
+
+## Issues
+
+- Sometimes there are transparent sections in designs. I think this is due to the secondary axis going past the other end.
+- Sometimes the stroked don't contrast well enough.
