@@ -1,18 +1,35 @@
 var generateCommands = require('../utils/generate-commands');
+var randomBool = require('../utils/random-bool');
 var express = require('express');
 var router = express.Router();
 
-function randomHsl() {
-  return 'hsla(' + (Math.random() * 360) + ', 70%, 30%, 1)';
+function hsla({hue, saturation, lightness}) {
+  return `hsla(${hue}, ${saturation}%, ${lightness}%, 1)`;
+}
+
+function plusOrMinus(base, change) {
+  return base + (randomBool ? 1 : -1) * change;
 }
 
 router.get('/', function(req, res, next) {
   res.setHeader('Content-Type', 'image/svg+xml');
 
+  const fill = {
+    hue: Math.random() * 360,
+    saturation: Math.random() * 25 + 25,
+    lightness: Math.random() * 25 + 25,
+  }
+
+  const stroke = {
+    hue: fill.hue,
+    saturation: plusOrMinus(fill.saturation, Math.random() * 25),
+    lightness: plusOrMinus(fill.lightness, Math.random() * 25),
+  }
+
   const data = {
-    stroke: 'rgba(255, 255, 255, 1)',
+    fill: hsla(fill),
+    stroke: hsla(stroke),
     strokeWidth: 1 + Math.random() * 30,
-    fill: randomHsl(),
     commands: generateCommands(100),
     usePositions: [
       {x: 100, y: 0},
