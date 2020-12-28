@@ -17,6 +17,49 @@ function randomHsl() {
   return 'hsla(' + (Math.random() * 360) + ', 70%, 30%, 1)';
 }
 
+function randomBool() {
+  return Math.random() > 0.5;
+}
+
+function randomCommands(length, mainAxis, secondAxis) {
+  const commands = [];
+  let lengthRemaining = length;
+
+  // Generate a random array of numbers that will add up to our total length
+  while(lengthRemaining > 0) {
+    if(lengthRemaining > length / 10) {
+      // If we've got a ways to go choose a random numbn
+      newLength = Math.random() * lengthRemaining;
+    } else {
+      // If we're close to our length, just use the remaining length
+      newLength = lengthRemaining
+    }
+
+    lengthRemaining -= newLength;
+    // Create a new command with instructions for our main axis.
+    newCommand = {};
+    newCommand[mainAxis] = newLength;
+
+    commands.push(newCommand);
+  }
+
+  // Randomize the order of our commands
+  commands.sort((a, b) => randomBool() ? 1 : -1);
+
+  const secondaryAxisDrift = 0;
+
+  commands.forEach(function(command, index, array){
+    if (index === array.length - 1){ 
+      command[secondAxis] = secondaryAxisDrift * -1;
+    } else {
+      const multiplier = randomBool() ? 1 : -1;
+      command[secondAxis] = Math.random() * 30 * multiplier;
+    }
+ });
+
+ return commands;
+}
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.setHeader('Content-Type', 'image/svg+xml');
@@ -29,17 +72,9 @@ router.get('/', function(req, res, next) {
   // by adding more `use` elements, and offsetting their positions.
 
   // Plan the movement of the pen along the top ends
-  const endCommands = [
-    {x: 20, y: -20},
-    {x: 10, y: 35},
-    {x: 25, y: 35},
-    {x: 45, y: -50}
-  ];
+  const endCommands = randomCommands(100, 'x', 'y');
   // Plan the movement of the pen along the sides
-  const sideCommands = [
-    {x: 10, y: 30},
-    {x: -10, y: 70},
-  ];
+  const sideCommands = randomCommands(100, 'y', 'x');
 
   let commands = [
     "M 0 0",

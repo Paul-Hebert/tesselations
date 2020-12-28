@@ -1,5 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+.tesselations {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tesselation {
-  background-image: url('/svg/');
-  width: 500px;
-  height: 500px;
+  background-image: '/svg';
+  padding-top: 50%;
+  width: 33%;
 }
