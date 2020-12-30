@@ -5,15 +5,16 @@
 - Fine tune color generation
 - Add rotation
 - Add different geometries
+- Screen reader/meta description
+- Ability to pass in options
 
 ## App UI
 
-- Save SVGs
-- Add generated names
-- Create detail pages
 - Add CSS background code
 - Add editing controls
 - Add "starring" tesselations
+- Add "similar" section
+- Improve focus styles
 
 ## Issues
 
