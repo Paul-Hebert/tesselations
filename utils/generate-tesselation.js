@@ -1,38 +1,40 @@
-var generateCommands = require('../utils/generate-commands');
-var randomBool = require('../utils/random-bool');
-var express = require('express');
-var router = express.Router();
 
+const Handlebars = require('handlebars');
+const fs = require('fs');
+const path = require('path');
+const generateCommands = require('../utils/generate-commands');
+const randomBool = require('../utils/random-bool');
+
+// TODO: Move to utility module
 function hsla({hue, saturation, lightness}) {
   return `hsla(${hue}, ${saturation}%, ${lightness}%, 1)`;
 }
 
+// TODO: Move to utility module
 function plusOrMinus(base, change) {
   return base + (randomBool ? 1 : -1) * change;
 }
 
-router.get('/', function(req, res, next) {
-  res.setHeader('Content-Type', 'image/svg+xml');
-
+module.exports = function() {
   const fill = {
     hue: Math.random() * 360,
     saturation: Math.random() * 25 + 25,
     lightness: Math.random() * 25 + 25,
   }
-
+  
   // Either use the same hue or a complementary hue for the stroke.
   let strokeHue = randomBool() ? fill.hue : fill.hue + 180;
   if(strokeHue > 360) strokeHue -= 360;
-
+  
   const stroke = {
     hue: strokeHue,
     saturation: plusOrMinus(fill.saturation, Math.random() * 25),
     lightness: plusOrMinus(fill.lightness, Math.random() * 25),
   }
-
+  
   const height = 30 + Math.random() * 130;
   const width = 30 + Math.random() * 130;
-
+  
   const data = {
     height,
     width,
@@ -47,8 +49,8 @@ router.get('/', function(req, res, next) {
       {x: 0, y: height * -1}
     ]
   }
-
-  res.render('svg', { ...data, layout: false });
-});
-
-module.exports = router;
+  
+  const source = fs.readFileSync(path.join(__dirname, '../views/tesselation.hbs'), 'utf8');
+  const template = Handlebars.compile(source);
+  return template(data);
+}

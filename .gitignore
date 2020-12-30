@@ -1,2 +1,6 @@
 /.DS_Store
 /node_modules
+
+# Ignore generated SVGs
+/public/svgs/*
+!/public/svgs/.gitkeep

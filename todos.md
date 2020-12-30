@@ -3,6 +3,8 @@
 - Add curved sides
 - Add more randomness to # of points
 - Fine tune color generation
+- Add rotation
+- Add different geometries
 
 ## App UI
 
@@ -11,6 +13,7 @@
 - Create detail pages
 - Add CSS background code
 - Add editing controls
+- Add "starring" tesselations
 
 ## Issues
 
