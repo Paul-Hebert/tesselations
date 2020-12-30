@@ -1,16 +1,15 @@
-
+// In the future we may want to hook into Express's default view engine
+// instead of using our own copy of Handlebars
 const Handlebars = require('handlebars');
 const fs = require('fs');
 const path = require('path');
 const generateCommands = require('../utils/generate-commands');
 const randomBool = require('../utils/random-bool');
 
-// TODO: Move to utility module
 function hsla({hue, saturation, lightness}) {
   return `hsla(${hue}, ${saturation}%, ${lightness}%, 1)`;
 }
 
-// TODO: Move to utility module
 function plusOrMinus(base, change) {
   return base + (randomBool ? 1 : -1) * change;
 }
