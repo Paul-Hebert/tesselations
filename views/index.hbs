@@ -1,11 +1,11 @@
 <div class="cards">
-  {{#each names}}
-    <a 
-      href="/details/{{this}}" 
-      class="card tesselation" 
-      style="background-image: url('/tesselation/{{this}}')">
+  {{#each tesselations}}
+    <a href="/details/{{this.id}}" class="card">
+      <h2 class="card__title">{{this.name}}</h2>
 
-      {{!-- TODO: Screen reader description --}}
+      <div class="card__graphic" style="background-image: url('/tesselation/{{this.id}}')">
+        {{!-- TODO: Screen reader description --}}
+      </div>
     </a>
   {{/each}}
 </div>
