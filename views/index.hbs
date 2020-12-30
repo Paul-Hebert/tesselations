@@ -1,5 +1,11 @@
-<div class="tesselations">
+<div class="cards">
   {{#each names}}
-    <div class="tesselation" style="background-image: url('/tesselation/{{this}}')"></div>
+    <a 
+      href="/details/{{this}}" 
+      class="card tesselation" 
+      style="background-image: url('/tesselation/{{this}}')">
+
+      {{!-- TODO: Screen reader description --}}
+    </a>
   {{/each}}
 </div>
