@@ -14,8 +14,6 @@ router.get('/:id', function(req, res, next) {
     });
   }
   
-  console.log(fs.readFileSync(path.join(__dirname, `../public/svgs/${id}.svg`), 'utf8'));
-
   res.setHeader('Content-Type', 'image/svg+xml');
   res.sendFile(filePath);
 });
