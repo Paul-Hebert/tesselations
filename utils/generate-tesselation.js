@@ -17,8 +17,8 @@ function plusOrMinus(base, change) {
 module.exports = function() {
   const fill = {
     hue: Math.random() * 360,
-    saturation: Math.random() * 25 + 25,
-    lightness: Math.random() * 25 + 25,
+    saturation: plusOrMinus(50, Math.random() * 50),
+    lightness: plusOrMinus(50, Math.random() * 50),
   }
   
   // Either use the same hue or a complementary hue for the stroke.
@@ -27,8 +27,8 @@ module.exports = function() {
   
   const stroke = {
     hue: strokeHue,
-    saturation: plusOrMinus(fill.saturation, Math.random() * 25),
-    lightness: plusOrMinus(fill.lightness, Math.random() * 25),
+    saturation: 20 + Math.random() * 80,
+    lightness: 30 + Math.random() * 70,
   }
   
   const height = 30 + Math.random() * 130;
