@@ -1,24 +1,24 @@
-module.exports = function(data) {
+module.exports = function({width, height, stroke, strokeWidth, fill, commands}) {
   return `
 <svg 
   xmlns='http://www.w3.org/2000/svg' 
   xmlns:xlink='http://www.w3.org/1999/xlink' 
-  width='${data.width}' 
-  height='${data.height}' 
-  viewBox='0 0 ${data.width} ${data.height}'
+  width='${width}' 
+  height='${height}' 
+  viewBox='0 0 ${width} ${height}'
 >
   <path 
-    stroke="${data.stroke}" 
-    stroke-width="${data.strokeWidth}"
-    fill="${data.fill}" 
-    d="${data.commands}" 
+    stroke="${stroke}" 
+    stroke-width="${strokeWidth}"
+    fill="${fill}" 
+    d="${commands}" 
     id="root">
   </path>
 
-  <use href="#root" x="${data.width * -1}" y="0"/>
-  <use href="#root" x="${data.width}" y="0"/>
-  <use href="#root" x="0" y="${data.height}"/>
-  <use href="#root" x="0" y="${data.height * -1}"/>
+  <use href="#root" x="${width * -1}" y="0"/>
+  <use href="#root" x="${width}" y="0"/>
+  <use href="#root" x="0" y="${height}"/>
+  <use href="#root" x="0" y="${height * -1}"/>
 </svg>
   `.trim();
 }
