@@ -2,5 +2,5 @@
 /node_modules
 
 # Ignore generated SVGs
-/public/svgs/*
-!/public/svgs/.gitkeep
+/tesselations/*
+!/tesselations/.gitkeep

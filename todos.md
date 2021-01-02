@@ -21,3 +21,10 @@
 - Sometimes there are transparent sections in designs. I think this is due to the secondary axis going past the other end.
 - Sometimes the stroked don't contrast well enough.
 - Are complementary colors too intense? Should these be less common? Less saturated? Less bright?
+- Using base 64 increases size of background CSS
+- Make code synchronous in fetch-or-create-data.js
+
+## Editor
+- Add option to override base JSON
+- Code to share modules between Node and client
+- Add editor UI

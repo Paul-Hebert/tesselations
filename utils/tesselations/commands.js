@@ -1,4 +1,4 @@
-var randomBool = require('./random-bool');
+var randomBool = require('../random-bool');
 
 function generateCommandsForSide(length, mainAxis, secondAxis) {
   const commands = [];

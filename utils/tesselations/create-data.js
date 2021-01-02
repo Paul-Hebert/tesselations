@@ -1,10 +1,5 @@
-// In the future we may want to hook into Express's default view engine
-// instead of using our own copy of Handlebars
-const Handlebars = require('handlebars');
-const fs = require('fs');
-const path = require('path');
-const generateCommands = require('../utils/generate-commands');
-const randomBool = require('../utils/random-bool');
+const commands = require('./commands');
+const randomBool = require('../random-bool');
 
 function hsla({hue, saturation, lightness}) {
   return `hsla(${hue}, ${saturation}%, ${lightness}%, 1)`;
@@ -15,6 +10,7 @@ function plusOrMinus(base, change) {
 }
 
 module.exports = function() {
+
   const fill = {
     hue: Math.random() * 360,
     saturation: plusOrMinus(50, Math.random() * 50),
@@ -34,22 +30,14 @@ module.exports = function() {
   const height = 30 + Math.random() * 130;
   const width = 30 + Math.random() * 130;
   
-  const data = {
+  return {
     height,
     width,
     fill: hsla(fill),
     stroke: hsla(stroke),
     strokeWidth: 1 + Math.random() * Math.min(height, width) * 1/2,
-    commands: generateCommands(width, height),
-    usePositions: [
-      {x: width, y: 0},
-      {x: width * -1, y: 0},
-      {x: 0, y: height},
-      {x: 0, y: height * -1}
-    ]
+    commands: commands(width, height)
   }
-  
-  const source = fs.readFileSync(path.join(__dirname, '../views/tesselation.hbs'), 'utf8');
-  const template = Handlebars.compile(source);
-  return template(data);
+
+  return data;
 }
