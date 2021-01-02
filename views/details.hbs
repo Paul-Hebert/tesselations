@@ -1,4 +1,6 @@
-<div class="details" style="{{background}}">
+<div class="details">
+  <div class="details__background" style="{{background}}; background-size: {{data.size}}px;"></div>
+
   <div class="details__content">
     <h1>{{name}}</h1>
 
@@ -11,5 +13,27 @@
     <h2>CSS:</h2>
 
     <pre><code>{{background}}</code></pre>
+
+    <h2>Edit Tesselation</h2>
+    
+    <form method="GET" class="edit-form">
+      <label for="fill">
+        Fill Color:
+        <input type="color" value="{{data.fill}}" name="fill" id="fill">
+      </label>
+      <label for="stroke">
+        Stroke Color:
+        <input type="color" value="{{data.stroke}}" name="stroke" id="stroke">
+      </label>
+      <label for="strokeWidth">
+        Stroke Width:
+        <input type="number" value="{{data.strokeWidth}}" name="strokeWidth" id="strokeWidth">
+      </label>
+      <label for="size">
+        Size
+        <input type="number" value="{{data.size}}" name="size" id="size">
+      </label>
+      <input type="submit" value="Generate">
+    </form>
   </div>
 </div>

@@ -64,18 +64,25 @@ body {
 }
 
 .details {
-  width: 100vw;
-  height: 100vh;
   padding: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.details__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .details__content {
   background-color: var(--transparent-black);
   color: #fff;
   padding: 1em;
+  z-index: 1;
 }
 
 .details__content > * + * {
@@ -87,4 +94,12 @@ pre {
   max-width: 60vw;
   overflow: scroll;
   padding: 1em;
+}
+
+.edit-form > * {
+  display: block;
+}
+
+.edit-form > * + * {
+  margin-top: 1em;
 }

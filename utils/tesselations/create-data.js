@@ -10,7 +10,6 @@ function plusOrMinus(base, change) {
 }
 
 module.exports = function() {
-
   const fill = {
     hue: Math.random() * 360,
     saturation: plusOrMinus(50, Math.random() * 50),
@@ -27,16 +26,18 @@ module.exports = function() {
     lightness: 30 + Math.random() * 70,
   }
   
-  const height = 30 + Math.random() * 130;
-  const width = 30 + Math.random() * 130;
+  const height = Math.round(30 + Math.random() * 130);
+  const width = Math.round(30 + Math.random() * 130);
   
   return {
     height,
     width,
+    size: width,
     fill: hsla(fill),
     stroke: hsla(stroke),
-    strokeWidth: 1 + Math.random() * Math.min(height, width) * 1/2,
-    commands: commands(width, height)
+    strokeWidth: Math.round(1 + Math.random() * Math.min(height, width) * 1/2),
+    commands: commands(width, height),
+    version: '1.0.0'
   }
 
   return data;

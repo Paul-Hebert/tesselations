@@ -7,12 +7,14 @@ const skeleton = require('../utils/tesselations/skeleton');
 
 router.get('/:id', function(req, res, next) {
   const baseData = fetchOrCreateData(req.params.id);
-  const svg = skeleton({...baseData, ...req.query});
+  const mergedData = {...baseData, ...req.query}
+  const svg = skeleton(mergedData);
   const pageData = {
     id: req.params.id,
     name: idToName(req.params.id),
     svg,
-    background: background(svg)
+    background: background(svg),
+    data: mergedData
   }  
   
   res.render('details', { title: 'Tesselation', ...pageData });
