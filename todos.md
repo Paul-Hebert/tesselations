@@ -23,8 +23,8 @@
 - Are complementary colors too intense? Should these be less common? Less saturated? Less bright?
 - Using base 64 increases size of background CSS
 - Make code synchronous in fetch-or-create-data.js
+- Does the way I'm merging the query string leave XSS vulns?
 
 ## Editor
-- Add option to override base JSON
 - Code to share modules between Node and client
 - Add editor UI
