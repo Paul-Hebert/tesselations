@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap');
 
+:root {
+  --transparent-black: rgba(0, 0, 0, 0.8);
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -35,13 +39,12 @@ body {
 }
 
 .card__title {
-  background: rgba(0, 0, 0, 0.5);
+  background-color: var(--transparent-black);
   color: #fff;
   padding: 0.5em;
   z-index: 1;
   position: relative;
   line-height: 1.2;
-  transition: color 0.2s ease-out;
   font-weight: 700;
 }
 
@@ -63,4 +66,25 @@ body {
 .details {
   width: 100vw;
   height: 100vh;
+  padding: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details__content {
+  background-color: var(--transparent-black);
+  color: #fff;
+  padding: 1em;
+}
+
+.details__content > * + * {
+  margin-top: 1em;
+}
+
+pre {
+  background-color: var(--transparent-black);
+  max-width: 60vw;
+  overflow: scroll;
+  padding: 1em;
 }

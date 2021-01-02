@@ -20,5 +20,5 @@ module.exports = function(data) {
   <use href="#root" x="0" y="${data.height}"/>
   <use href="#root" x="0" y="${data.height * -1}"/>
 </svg>
-  `;
+  `.trim();
 }
