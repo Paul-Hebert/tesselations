@@ -8,7 +8,7 @@ function generateCommandsForSide(length, mainAxis, secondAxis) {
   while(lengthRemaining > 0) {
     if(lengthRemaining > length / 5) {
       // If we've got a ways to go choose a random number
-      newLength = Math.random() * lengthRemaining;
+      newLength = Math.round(Math.random() * lengthRemaining);
     } else {
       // If we're close to our length, just use the remaining length
       newLength = lengthRemaining
@@ -36,7 +36,7 @@ function generateCommandsForSide(length, mainAxis, secondAxis) {
       command[secondAxis] = secondaryAxisDrift * -1;
     } else {
       const multiplier = randomBool() ? 1 : -1;
-      const change = Math.random() * length/4 * multiplier;
+      const change = Math.round(Math.random() * length/4 * multiplier);
       secondaryAxisDrift += change;
       command[secondAxis] = change;
     }
