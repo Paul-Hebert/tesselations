@@ -27,3 +27,4 @@
 - Using base 64 increases size of background CSS
 - Make code synchronous in fetch-or-create-data.js
 - Does the way I'm merging the query string leave XSS vulns?
+- Switch data storage to database?
