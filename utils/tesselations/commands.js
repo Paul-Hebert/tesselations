@@ -74,5 +74,6 @@ module.exports = function(width, height) {
     ...addSide({commands: sideCommands}),
     ...addSide({commands: endCommands, reverse: true}),
     ...addSide({commands: sideCommands, reverse:  true}),
+    "Z"
   ].join(' ');
 }
