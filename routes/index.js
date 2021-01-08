@@ -1,5 +1,5 @@
 import express from 'express';
-import {background} from '../public/scripts/background.js';
+import {background} from '../utils/tesselations/background.js';
 import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
 import {idToName} from '../utils/id-to-name.js';
 import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';

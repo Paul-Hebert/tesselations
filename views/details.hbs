@@ -1,5 +1,8 @@
 <div class="details">
-  <div class="details__background" style="{{background}}; background-size: {{data.size}}px;"></div>
+  <div 
+    class="details__background js-editor-background-target" 
+    style="{{background}}; background-size: {{data.size}}px;">
+  </div>
 
   <div class="details__content">
     <h1>{{name}}</h1>
@@ -8,7 +11,9 @@
       SVG:
     </h2>
 
-    {{{svg}}}
+    <div class="js-editor-svg-target">
+      {{{svg}}}
+    </div>
 
     <pre><code>{{svg}}</code></pre>
 
@@ -18,7 +23,7 @@
 
     <h2>Edit Tesselation</h2>
     
-    <form method="GET" class="edit-form">
+    <form method="GET" class="js-editor">
       <label for="fill">
         Fill Color:
         <input type="color" value="{{data.fill}}" name="fill" id="fill">
@@ -35,7 +40,12 @@
         Size
         <input type="number" value="{{data.size}}" name="size" id="size">
       </label>
-      <input type="submit" value="Generate">
+      {{!-- <input type="submit" value="Generate"> --}}
     </form>
   </div>
 </div>
+
+<script>
+  const baseData = {{{dataString}}};
+</script>
+<script src="/scripts/editor.js" type="module"></script>

@@ -1,4 +1,4 @@
-import {background} from '../public/scripts/background.js';
+import {background} from '../utils/tesselations/background.js';
 import express from 'express';
 import {idToName} from '../utils/id-to-name.js';
 import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
@@ -14,7 +14,8 @@ detailsRouter.get('/:id', function(req, res, next) {
     name: idToName(req.params.id),
     svg,
     background: background(svg),
-    data: mergedData
+    data: mergedData,
+    dataString: JSON.stringify(mergedData)
   }  
   
   res.render('details', { title: 'Tesselation', ...pageData });
