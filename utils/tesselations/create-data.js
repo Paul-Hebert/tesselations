@@ -1,14 +1,12 @@
-const commands = require('./commands');
-const randomBool = require('../random-bool');
-const hslToHex = require('../hsl-to-hex');
-
-
+import {commands} from './commands.js';
+import {randomBool} from '../random-bool.js';
+import {hslToHex} from '../hsl-to-hex.js';
 
 function plusOrMinus(base, change) {
   return base + (randomBool ? 1 : -1) * change;
 }
 
-module.exports = function() {
+export function createData() {
   const fill = {
     h: Math.random() * 360,
     s: plusOrMinus(50, Math.random() * 50),

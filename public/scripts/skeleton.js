@@ -1,4 +1,4 @@
-module.exports = function({width, height, stroke, strokeWidth, fill, commands}) {
+export function skeleton({width, height, stroke, strokeWidth, fill, commands}) {
   return `
 <svg 
   xmlns='http://www.w3.org/2000/svg' 

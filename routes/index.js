@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const { uniqueNamesGenerator, adjectives, animals } = require('unique-names-generator');
-const idToName = require('../utils/id-to-name.js');
-const background = require('../utils/tesselations/background');
-const fetchOrCreateData = require('../utils/tesselations/fetch-or-create-data');
-const skeleton = require('../utils/tesselations/skeleton');
+import express from 'express';
+import {background} from '../public/scripts/background.js';
+import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
+import {idToName} from '../utils/id-to-name.js';
+import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
+import {skeleton} from '../public/scripts/skeleton.js';
+const indexRouter = express.Router();
 
 const tesselations = [];
 
@@ -35,8 +35,8 @@ const data = {
   }))
 }
 
-router.get('/', function(req, res, next) {
+indexRouter.get('/', function(req, res, next) {
   res.render('index', { title: 'Tesselation', data });
 });
 
-module.exports = router;
+export { indexRouter };

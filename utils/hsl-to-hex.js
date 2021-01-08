@@ -1,5 +1,5 @@
 // @see https://stackoverflow.com/a/44134328/7816145
-module.exports = function({h, s, l}) {
+export function hslToHex({h, s, l}) {
   l /= 100;
   const a = s * Math.min(l, 1 - l) / 100;
   const f = n => {

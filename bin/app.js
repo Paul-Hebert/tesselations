@@ -4,9 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('tesselations:server');
-var http = require('http');
+import {app} from '../app.js';
+import debug from 'debug';
+import http from 'http';
+
+const debugInstance = debug('tesselations:server');
 
 /**
  * Get port from environment and store in Express.
@@ -86,5 +88,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  debugInstance('Listening on ' + bind);
 }

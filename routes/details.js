@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const idToName = require('../utils/id-to-name.js');
-const background = require('../utils/tesselations/background');
-const fetchOrCreateData = require('../utils/tesselations/fetch-or-create-data');
-const skeleton = require('../utils/tesselations/skeleton');
+import {background} from '../public/scripts/background.js';
+import express from 'express';
+import {idToName} from '../utils/id-to-name.js';
+import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
+import {skeleton} from '../public/scripts/skeleton.js';
+const detailsRouter = express.Router();
 
-router.get('/:id', function(req, res, next) {
+detailsRouter.get('/:id', function(req, res, next) {
   const baseData = fetchOrCreateData(req.params.id);
   const mergedData = {...baseData, ...req.query}
   const svg = skeleton(mergedData);
@@ -20,4 +20,4 @@ router.get('/:id', function(req, res, next) {
   res.render('details', { title: 'Tesselation', ...pageData });
 });
 
-module.exports = router;
+export { detailsRouter };

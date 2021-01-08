@@ -1,8 +1,12 @@
-const fs = require('fs');
-const path = require('path');
-const createData = require('./create-data');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import {createData} from './create-data.js';
 
-module.exports = function(id) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export function fetchOrCreateData(id) {
   const directoryPath = path.join(__dirname, `../../tesselations/${id}`);
   const filePath = `${directoryPath}/index.json`
   let data;

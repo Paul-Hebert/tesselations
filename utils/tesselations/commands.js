@@ -1,8 +1,9 @@
-var randomBool = require('../random-bool');
+import {randomBool} from '../random-bool.js';
 
 function generateCommandsForSide(length, mainAxis, secondAxis) {
   const commands = [];
   let lengthRemaining = length;
+  let newLength, newCommand;
 
   // Generate a random array of numbers that will add up to our total length
   while(lengthRemaining > 0) {
@@ -57,7 +58,7 @@ function addSide({ commands, reverse = false}) {
   });
 }
 
-module.exports = function(width, height) {
+export function commands(width, height) {
   // Our paths are made up of a series of pen movements. The pen always needs 
   // to end in a corner, so, for example, when creating a horizontal line, 
   // all of our x movement needs to equal our width, and all of our y movement
