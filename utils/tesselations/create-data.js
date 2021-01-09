@@ -6,6 +6,10 @@ function plusOrMinus(base, change) {
   return base + (randomBool ? 1 : -1) * change;
 }
 
+function dimensionLength() {
+  return Math.round(10 + Math.random() * 130);
+}
+
 export function createData() {
   const fill = {
     h: Math.random() * 360,
@@ -23,13 +27,13 @@ export function createData() {
     l: 30 + Math.random() * 70,
   }
   
-  const height = Math.round(30 + Math.random() * 130);
-  const width = Math.round(30 + Math.random() * 130);
+  const height = dimensionLength();
+  const width = dimensionLength();
   
   return {
     height,
     width,
-    size: width,
+    size: Math.round(Math.random() * 100),
     fill: hslToHex(fill),
     stroke: hslToHex(stroke),
     strokeWidth: Math.round(1 + Math.random() * Math.min(height, width) * 1/2),

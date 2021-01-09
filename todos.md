@@ -11,13 +11,12 @@
 
 ## App UI
 
-- Make editing client side
 - Add "starring" tesselations
 - Add "similar" section
 - Improve focus styles on cards
 - Improve details page design
 - Add app header
-- Add "hero" section
+- Improve "hero" section
  
 ## Issues
 

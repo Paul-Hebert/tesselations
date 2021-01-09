@@ -14,10 +14,13 @@ for(var i = 0; i < 27; i++) {
     separator: '-'
   });
 
+  const tessData = fetchOrCreateData(id);
+
   tesselations.push({
     id,
     name: idToName(id),
-    background: background(skeleton(fetchOrCreateData(id)))
+    background: background(skeleton(tessData)),
+    size: tessData.size
   });
 }
 

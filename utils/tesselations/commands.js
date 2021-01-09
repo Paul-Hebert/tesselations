@@ -1,6 +1,6 @@
 import {randomBool} from '../random-bool.js';
 
-function generateCommandsForSide(length, mainAxis, secondAxis) {
+function generateCommandsForSide(length, variance, mainAxis, secondAxis) {
   const commands = [];
   let lengthRemaining = length;
   let newLength, newCommand;
@@ -37,7 +37,8 @@ function generateCommandsForSide(length, mainAxis, secondAxis) {
       command[secondAxis] = secondaryAxisDrift * -1;
     } else {
       const multiplier = randomBool() ? 1 : -1;
-      const change = Math.round(Math.random() * length/4 * multiplier);
+      const change = Math.round(Math.random() * variance/4 * multiplier);
+      if(change + secondaryAxisDrift > variance) { variance * -1; }
       secondaryAxisDrift += change;
       command[secondAxis] = change;
     }
@@ -65,9 +66,9 @@ export function commands(width, height) {
   // needs to equal 0.
 
   // Plan the movement of the pen along the top ends
-  const endCommands = generateCommandsForSide(width, 'x', 'y');
+  const endCommands = generateCommandsForSide(width, height, 'x', 'y');
   // Plan the movement of the pen along the sides
-  const sideCommands = generateCommandsForSide(height, 'y', 'x');
+  const sideCommands = generateCommandsForSide(height, width, 'y', 'x');
 
   return [
     "M 0 0",
