@@ -15,7 +15,7 @@ detailsRouter.get('/:id', function(req, res, next) {
   
   res.render('details', { 
     title: `${name} tesselation`, 
-    stylesheets: ['details'],
+    stylesheets: ['pages/details'],
     id: req.params.id,
     name,
     svg,

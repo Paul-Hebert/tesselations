@@ -1,0 +1,8 @@
+.container {
+  --max-width: 65em;
+  padding: 2em max(2em, calc((100vw - var(--max-width)) / 2));
+}
+
+.container--wide {
+  --max-width: 85em;
+}

@@ -1,3 +1,7 @@
+## Perf
+
+- CSS/JS bundling
+
 ## Randomization
 
 - Add curved sides

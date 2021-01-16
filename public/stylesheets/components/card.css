@@ -1,29 +1,3 @@
-.hero {
-  display: flex;
-  flex-direction: column;
-  min-height: 70vh;
-}
-
-.hero > * + * {
-  margin-top: 1em;
-}
-
-.hero__heading {
-  font-size: 4em;
-}
-
-.hero__subhead {
-  font-size: 1.5em;
-  font-style: italic;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
-  grid-auto-rows: 15em;
-  grid-gap: 2em;
-}
-
 .card {
   display: flex;
   flex-direction: column-reverse;

@@ -41,7 +41,11 @@ const data = {
 indexRouter.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Tesselations', 
-    stylesheets: ['index'],
+    stylesheets: [
+      'components/hero',
+      'components/listings',
+      'components/card'
+    ],
     data 
   });
 });

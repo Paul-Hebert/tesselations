@@ -1,0 +1,6 @@
+.header {
+  padding: 1em 2em;
+  z-index: 1;
+  position: relative;
+  background: #fff;
+}
