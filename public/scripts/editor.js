@@ -23,7 +23,7 @@ const cssCodeTarget = document.querySelector('.js-editor-css-code-target');
       
       cssCodeTarget.innerText = `
 background-image: ${backgroundCSS};
-background-size: ${mergedData.size}px`.trim();
+background-size: ${mergedData.size}px;`.trim();
   
       svgTarget.innerHTML = svg;
       svgCodeTarget.innerText = svg;
