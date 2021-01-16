@@ -1,11 +1,11 @@
-<div class="hero" style="{{data.heroBackground}}">
+<div class="hero container" style="{{data.heroBackground}}">
   <h1 class="hero__heading">Tesselation Generator</h1>
 
   <p class="hero__subhead">Procedurally generated tesselations for shits, giggles, and CSS background images.</p>
 </div>
 
 </div>
-<div class="cards">
+<div class="cards container container--wide">
   {{#each data.tesselations}}
     <a href="/details/{{this.id}}" class="card">
       <h2 class="card__title">{{this.name}}</h2>

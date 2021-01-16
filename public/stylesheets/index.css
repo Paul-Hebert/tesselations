@@ -1,0 +1,60 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+.hero > * + * {
+  margin-top: 1em;
+}
+
+.hero__heading {
+  font-size: 4em;
+}
+
+.hero__subhead {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+  grid-auto-rows: 15em;
+  grid-gap: 2em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 0.2em;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.card__title {
+  background-color: var(--transparent-black);
+  color: #fff;
+  padding: 0.5em;
+  z-index: 1;
+  position: relative;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.card__graphic {
+  transition: transform 0.2s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.card:hover .card__graphic,
+.card:focus .card__graphic {
+  transform: scale(1.1) rotate(-2deg);
+}

@@ -9,16 +9,20 @@ detailsRouter.get('/:id', function(req, res, next) {
   const baseData = fetchOrCreateData(req.params.id);
   const mergedData = {...baseData, ...req.query}
   const svg = skeleton(mergedData);
+  const name = idToName(req.params.id);
   const pageData = {
+  }  
+  
+  res.render('details', { 
+    title: `${name} tesselation`, 
+    stylesheets: ['details'],
     id: req.params.id,
-    name: idToName(req.params.id),
+    name,
     svg,
     background: background(svg),
     data: mergedData,
     dataString: JSON.stringify(mergedData)
-  }  
-  
-  res.render('details', { title: 'Tesselation', ...pageData });
+  });
 });
 
 export { detailsRouter };
