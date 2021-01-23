@@ -1,5 +1,7 @@
-import {background} from '../utils/tesselations/background.js';
 import express from 'express';
+import querystring from 'querystring';
+import {background} from '../utils/tesselations/background.js';
+
 import {idToName} from '../utils/id-to-name.js';
 import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
 import {skeleton} from '../public/scripts/skeleton.js';
@@ -10,8 +12,6 @@ detailsRouter.get('/:id', function(req, res, next) {
   const mergedData = {...baseData, ...req.query}
   const svg = skeleton(mergedData);
   const name = idToName(req.params.id);
-  const pageData = {
-  }  
   
   res.render('details', { 
     title: `${name} tesselation`, 
@@ -21,7 +21,8 @@ detailsRouter.get('/:id', function(req, res, next) {
     svg,
     background: background(svg),
     data: mergedData,
-    dataString: JSON.stringify(mergedData)
+    dataString: JSON.stringify(mergedData),
+    downloadUrl: `/download?${querystring.stringify(mergedData)}`
   });
 });
 

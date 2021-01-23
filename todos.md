@@ -22,11 +22,18 @@
 - Improve details page design
 - Add app header
 - Improve "hero" section
+- Download link
+  - Update dynamically
+  - Use tiled download
 
 ## Misc
 
 - Linting
+
+## Security
  
+- Does the way I'm merging the query string leave XSS vulns? I should probably check for certain properties and validate them
+
 ## Issues
 
 - Sometimes there are transparent sections in designs. I think this is due to the secondary axis going past the other end.
@@ -34,5 +41,4 @@
 - Are complementary colors too intense? Should these be less common? Less saturated? Less bright?
 - Using base 64 increases size of background CSS
 - Make code synchronous in fetch-or-create-data.js
-- Does the way I'm merging the query string leave XSS vulns?
 - Switch data storage to database?
