@@ -1,6 +1,7 @@
 ## Perf
 
 - CSS/JS bundling
+- Maybe use Vite
 
 ## Randomization
 
@@ -21,6 +22,10 @@
 - Improve details page design
 - Add app header
 - Improve "hero" section
+
+## Misc
+
+- Linting
  
 ## Issues
 
