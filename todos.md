@@ -29,6 +29,7 @@
 ## Misc
 
 - Linting
+- Add tests
 
 ## Security
  
