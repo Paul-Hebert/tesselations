@@ -7,13 +7,6 @@
 </div>
 <div class="listings container container--wide">
   {{#each data.tesselations}}
-    <a href="/details/{{this.id}}" class="card">
-      <h2 class="card__title">{{this.name}}</h2>
-
-      
-      <div class="card__graphic" style="{{this.background}};background-size: {{this.size}}px;">
-        {{!-- TODO: Screen reader description --}}
-      </div>
-    </a>
+    {{> card}}
   {{/each}}
 </div>
