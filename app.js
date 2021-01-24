@@ -1,23 +1,31 @@
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import hbs from 'express-handlebars';
+import {fileURLToPath} from 'url';
 import {indexRouter} from './routes/index.js';
 import {detailsRouter} from './routes/details.js';
 import {downloadRouter} from './routes/download.js';
 import debug from 'debug';
 import http from 'http';
 
+// Stub out Node features not available when using ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 var app = express();
 
+app.engine( 'hbs', hbs( { 
+  extname: 'hbs', 
+  defaultLayout: 'main', 
+  layoutsDir: __dirname + '/views/layouts/',
+  partialsDir: __dirname + '/views/partials/'
+} ) );
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set( 'view engine', 'hbs' );
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
