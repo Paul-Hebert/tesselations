@@ -1,8 +1,12 @@
-<a href="/details/{{this.id}}" class="card">
-  <h2 class="card__title">{{this.name}}</h2>
+<article class="card">
+  <h2 class="card__title">
+    <a href="/details/{{this.id}}" class="card__primary-action">
+      {{this.name}}
+    </a>
+  </h2>
 
   
   <div class="card__graphic" style="{{this.background}};background-size: {{this.size}}px;">
     {{!-- TODO: Screen reader description --}}
   </div>
-</a>
+</article>
