@@ -22,14 +22,14 @@
 ## App UI
 
 - better color pickers?
-- Add "starring" tesselations
-- Add "similar" section
 - Improve focus styles on cards
 - Improve details page design
 - Add app header
 - Improve "hero" section
 - Download link
   - Use tiled download
+- Add "create new" feature
+- load more tesselations when you hit the bottom
 
 ## Security
  
