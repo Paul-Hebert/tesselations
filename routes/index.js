@@ -1,34 +1,12 @@
 import express from 'express';
 import {encode} from '../utils/tesselations/encode.js';
-import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
-import {idToName} from '../utils/id-to-name.js';
-import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
 import {skeleton} from '../public/scripts/utils/skeleton.js';
 import {css} from '../public/scripts/utils/css.js';
+import {newTesselations} from '../utils/tesselations/new-tesselations.js'
 
 const indexRouter = express.Router();
 
-const tesselations = [];
-
-for(var i = 0; i < 27; i++) {
-  const id = uniqueNamesGenerator({
-    dictionaries: [adjectives, animals],
-    separator: '-'
-  });
-
-  const tessData = fetchOrCreateData(id);
-  const svg = skeleton(tessData)
-
-  tesselations.push({
-    id,
-    name: idToName(id),
-    css: css({
-      base64String: encode(svg),
-      size: tessData.size,
-      fill: tessData.fill
-    })
-  });
-}
+const tesselations = newTesselations(27);
 
 const heroData = {
   height: 102,
