@@ -1,10 +1,10 @@
 import express from 'express';
 import querystring from 'querystring';
-import {background} from '../utils/tesselations/background.js';
-
+import {encode} from '../utils/tesselations/encode.js';
 import {idToName} from '../utils/id-to-name.js';
 import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
 import {skeleton} from '../public/scripts/skeleton.js';
+import {css} from '../public/scripts/css.js';
 const detailsRouter = express.Router();
 
 detailsRouter.get('/:id', function(req, res, next) {
@@ -19,7 +19,11 @@ detailsRouter.get('/:id', function(req, res, next) {
     id: req.params.id,
     name,
     svg,
-    background: background(svg),
+    css: css({
+      base64String: encode(svg),
+      size: mergedData.size,
+      fill: mergedData.fill
+    }),
     data: mergedData,
     dataString: JSON.stringify(mergedData),
     downloadUrl: `/download?${querystring.stringify(mergedData)}`

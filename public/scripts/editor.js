@@ -1,4 +1,6 @@
 import {skeleton} from './skeleton.js';
+import {css} from './css.js';
+import {urlString} from './url-string.js';
 
 const editor = document.querySelector('.js-editor');
 const backgroundTarget = document.querySelector('.js-editor-background-target');
@@ -13,7 +15,12 @@ const downloadLink = document.querySelector('.js-editor-download-link');
     // baseData is defined in the template.
     const mergedData = {...baseData, ...newData};
     const svg = skeleton(mergedData);
-    const backgroundCSS = `url(data:image/svg+xml;base64,${btoa(svg)})`;
+    const base64String = btoa(svg);
+    const backgroundCSS = css({
+      base64String: base64String,
+      size: mergedData.size,
+      fill: mergedData.fill
+    });
     const downloadUrl = `/download?${new URLSearchParams(mergedData).toString()}`;
 
     const query = new URLSearchParams(newData).toString();
@@ -21,13 +28,12 @@ const downloadLink = document.querySelector('.js-editor-download-link');
 
     window.requestAnimationFrame(() => {
       if(backgroundTarget) {
-        backgroundTarget.style.backgroundImage = backgroundCSS;
+        backgroundTarget.style.backgroundColor = mergedData.fill;
+        backgroundTarget.style.backgroundImage = urlString(base64String);
         backgroundTarget.style.backgroundSize = `${mergedData.size}px`;
       }
       
-      if (cssCodeTarget) cssCodeTarget.innerText = `
-background-image: ${backgroundCSS};
-background-size: ${mergedData.size}px;`.trim();
+      if (cssCodeTarget) cssCodeTarget.innerText = backgroundCSS;
   
       if (svgTarget) svgTarget.innerHTML = svg;
       if (svgCodeTarget) svgCodeTarget.innerText = svg;
