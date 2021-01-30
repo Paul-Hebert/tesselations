@@ -8,13 +8,9 @@
 }
 
 .edit-form {
-  display: flex;
-  gap: 3em;
-}
-
-.edit-form label {
-  flex: 1 0 0;
-  font-weight: bold;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
 }
 
 .edit-form input {
