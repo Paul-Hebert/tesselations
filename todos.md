@@ -29,7 +29,10 @@
 - Download link
   - Use tiled download
 - Add "create new" feature
-- load more tesselations when you hit the bottom
+- Lazy loading
+  - better loading indicator. 
+  - Reset page position for screen readers/keyboard users after load?
+  - Reuse existing tesselations before making more
 
 ## Security
  

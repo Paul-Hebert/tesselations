@@ -4,10 +4,17 @@
   <p class="hero__subhead">Procedurally generated tesselations for shits, giggles, and CSS background images.</p>
 </div>
 
-<div class="listings container container--wide">
+<div class="listings container container--wide js-listings">
   {{#each data.tesselations}}
     {{> card}}
   {{/each}}
 </div>
 
-<button class="js-moar">Moar!!!</button>
+<div class="js-loading">Loading...</div>
+
+<script>
+  function newCard({id, name, css}) {
+    return `{{> card id="${id}" name="${name}" css="${css}"}}`;
+  }
+</script>
+<script src="/scripts/pages/index.js" type="module"></script>
