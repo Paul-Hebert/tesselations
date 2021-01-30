@@ -6,7 +6,6 @@ import {fileURLToPath} from 'url';
 import {indexRouter} from './routes/index.js';
 import {detailsRouter} from './routes/details.js';
 import {downloadRouter} from './routes/download.js';
-import debug from 'debug';
 import http from 'http';
 
 // Stub out Node features not available when using ES Modules
@@ -48,8 +47,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-const debugInstance = debug('tesselations:server');
 
 /**
  * Get port from environment and store in Express.
@@ -126,8 +123,5 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debugInstance('Listening on ' + bind);
+  console.log(`Listening at http://localhost:${addr.port}`);
 }
