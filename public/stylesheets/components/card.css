@@ -13,7 +13,7 @@
   padding: 0.5em;
   z-index: 1;
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .card__primary-action {

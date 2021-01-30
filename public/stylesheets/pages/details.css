@@ -1,16 +1,24 @@
 .details__example {
   width: 100%;
-  height: 10em;
+  height: min(20em, 40vh);
 }
 
 .details__content > * + * {
   margin-top: 1em;
 }
 
-.edit-form > * {
-  display: block;
+.edit-form {
+  display: flex;
+  gap: 3em;
 }
 
-.edit-form > * + * {
+.edit-form label {
+  flex: 1 0 0;
+  font-weight: bold;
+}
+
+.edit-form input {
+  display: block;
   margin-top: 1em;
+  width: 100%
 }
