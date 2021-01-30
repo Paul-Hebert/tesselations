@@ -22,9 +22,7 @@ export function editor({editor, backgroundTarget, svgTarget, svgCodeTarget, cssC
 
       window.requestAnimationFrame(() => {
         if(backgroundTarget) {
-          backgroundTarget.style.backgroundColor = mergedData.fill;
-          backgroundTarget.style.backgroundImage = urlString(base64String);
-          backgroundTarget.style.backgroundSize = `${mergedData.size}px`;
+          backgroundTarget.style.cssText = backgroundCSS;
         }
         
         if (cssCodeTarget) cssCodeTarget.innerText = backgroundCSS;
