@@ -4,8 +4,9 @@
     <title>{{title}}</title>
 
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/components/header.css' />
     <link rel='stylesheet' href='/stylesheets/components/container.css' />
+    <link rel='stylesheet' href='/stylesheets/components/header.css' />
+    <link rel='stylesheet' href='/stylesheets/components/toast.css' />
     {{#each stylesheets}}
       <link rel='stylesheet' href='/stylesheets/{{this}}.css' />
     {{/each}}
@@ -14,6 +15,9 @@
     <header class="header">
       Header
     </header>
+
+    <div class="toast js-toast" role="status"></div>
+
     {{{body}}}
   </body>
 </html>

@@ -7,12 +7,6 @@
   margin-top: 1em;
 }
 
-pre {
-  max-width: 60vw;
-  overflow: auto;
-  padding: 1em;
-}
-
 .edit-form > * {
   display: block;
 }

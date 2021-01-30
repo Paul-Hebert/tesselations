@@ -1,5 +1,6 @@
 import {editor} from '../utils/editor.js';
 import {copyCode} from '../utils/copy-code.js';
+import {toast} from '../utils/toast.js';
 
 editor({
   editor: document.querySelector('.js-editor'),
@@ -13,4 +14,10 @@ editor({
 const copyButton = document.querySelector('.js-copy-button');
 const cssSourceEl = document.querySelector('.js-css-source');
 
-copyButton.addEventListener('click', () => { copyCode(cssSourceEl) });
+const toastInstance = toast(document.querySelector('.js-toast'));
+
+copyButton.addEventListener('click', () => { 
+  copyCode(cssSourceEl).then(() => {
+    toastInstance.show('CSS copied to clipboard.');
+  })
+});

@@ -1,0 +1,20 @@
+.code-block {
+  position: relative;
+  border: 1px solid var(--transparent-black);
+}
+
+.code-block__code {
+  overflow: auto;
+  padding: 1em;
+}
+
+.code-block__actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  background-color: var(--transparent-black);
+}
