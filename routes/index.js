@@ -3,8 +3,8 @@ import {encode} from '../utils/tesselations/encode.js';
 import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
 import {idToName} from '../utils/id-to-name.js';
 import {fetchOrCreateData} from '../utils/tesselations/fetch-or-create-data.js';
-import {skeleton} from '../public/scripts/skeleton.js';
-import {css} from '../public/scripts/css.js';
+import {skeleton} from '../public/scripts/utils/skeleton.js';
+import {css} from '../public/scripts/utils/css.js';
 
 const indexRouter = express.Router();
 

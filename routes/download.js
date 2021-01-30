@@ -1,5 +1,5 @@
 import express from 'express';
-import {skeleton} from '../public/scripts/skeleton.js';
+import {skeleton} from '../public/scripts/utils/skeleton.js';
 const downloadRouter = express.Router();
 
 downloadRouter.get('/', function(req, res, next) {  
