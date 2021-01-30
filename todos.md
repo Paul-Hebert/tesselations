@@ -1,7 +1,12 @@
 ## Perf
 
 - CSS/JS bundling
-- Maybe use Vite
+- Maybe use Vite?
+
+## Code quality
+- Make editor module accept params instead of running its own queries
+- Tests
+- Linting
 
 ## Randomization
 
@@ -16,6 +21,7 @@
 
 ## App UI
 
+- better color pickers?
 - Add "starring" tesselations
 - Add "similar" section
 - Improve focus styles on cards
@@ -23,13 +29,7 @@
 - Add app header
 - Improve "hero" section
 - Download link
-  - Update dynamically
   - Use tiled download
-
-## Misc
-
-- Linting
-- Add tests
 
 ## Security
  
@@ -37,9 +37,8 @@
 
 ## Issues
 
-- Sometimes there are transparent sections in designs. I think this is due to the secondary axis going past the other end.
 - Sometimes the strokes don't contrast well enough.
 - Are complementary colors too intense? Should these be less common? Less saturated? Less bright?
 - Using base 64 increases size of background CSS
-- Make code synchronous in fetch-or-create-data.js
+- Should server side code by async?
 - Switch data storage to database?
