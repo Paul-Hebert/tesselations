@@ -1,4 +1,5 @@
 import {editor} from '../utils/editor.js';
+import {copyCode} from '../utils/copy-code.js';
 
 editor({
   editor: document.querySelector('.js-editor'),
@@ -8,3 +9,8 @@ editor({
   cssCodeTarget: document.querySelector('.js-editor-css-code-target'),
   downloadLink: document.querySelector('.js-editor-download-link'),
 })
+
+const copyButton = document.querySelector('.js-copy-button');
+const cssSourceEl = document.querySelector('.js-css-source');
+
+copyButton.addEventListener('click', () => { copyCode(cssSourceEl) });
