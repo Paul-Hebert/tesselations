@@ -1,7 +1,11 @@
 const loadingEl = document.querySelector('.js-loading')
 
+const batchSize = count;
+
 const onIntersection = () => {
-  fetch('/api/create-new')
+  count += batchSize;
+
+  fetch(`/api/fetch-more?start=${count}&count=${batchSize}`)
     .then(response => response.json())
     .then(data => {
       let newCards = [];

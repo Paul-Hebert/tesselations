@@ -2,11 +2,13 @@ import express from 'express';
 import {encode} from '../utils/tesselations/encode.js';
 import {skeleton} from '../public/scripts/utils/skeleton.js';
 import {css} from '../public/scripts/utils/css.js';
-import {newTesselations} from '../utils/tesselations/create-new.js'
+import {fetchOrCreateTesselations} from '../utils/tesselations/fetch-or-create-tesselations.js'
 
 const indexRouter = express.Router();
 
-const tesselations = newTesselations(27);
+const startCount = 27;
+
+const tesselations = fetchOrCreateTesselations(0, startCount);
 
 const heroData = {
   height: 102,
@@ -27,7 +29,8 @@ const data = {
     base64String: encode(heroSvg),
     size: heroData.size,
     fill: heroData.fill
-  })
+  }),
+  startCount
 }
 
 indexRouter.get('/', function(req, res, next) {

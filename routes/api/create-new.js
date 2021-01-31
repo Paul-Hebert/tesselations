@@ -4,7 +4,7 @@ import {newTesselations} from '../../utils/tesselations/create-new.js'
 const createNewRouter = express.Router();
 
 createNewRouter.get('/', function(req, res, next) {
-  res.json(newTesselations(27));   
+  res.json(newTesselations(1));   
 });
 
 export { createNewRouter };

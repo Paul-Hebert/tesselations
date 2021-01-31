@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./app.js",
     "clean": "del 'tesselations/**/*' '!.gitkeep'",
-    "dev": "npm run clean && npx nodemon --ignore 'tesselations/**/*.json'"
+    "dev": "npx nodemon --ignore 'tesselations/**/*.json'",
+    "clean-dev": "npm run clean && npm run dev"
   },
   "type": "module",
   "dependencies": {

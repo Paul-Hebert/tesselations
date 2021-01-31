@@ -33,6 +33,7 @@ app.use('/', indexRouter);
 app.use('/details/', detailsRouter);
 app.use('/download/', downloadRouter);
 app.use('/api/create-new', createNewRouter);
+app.use('/api/fetch-more', createNewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
