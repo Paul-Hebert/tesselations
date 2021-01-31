@@ -2,7 +2,7 @@ import express from 'express';
 import {encode} from '../utils/tesselations/encode.js';
 import {skeleton} from '../public/scripts/utils/skeleton.js';
 import {css} from '../public/scripts/utils/css.js';
-import {newTesselations} from '../utils/tesselations/new-tesselations.js'
+import {newTesselations} from '../utils/tesselations/create-new.js'
 
 const indexRouter = express.Router();
 

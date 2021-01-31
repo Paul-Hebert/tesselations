@@ -45,3 +45,4 @@
 - Using base 64 increases size of background CSS
 - Should server side code by async?
 - Switch data storage to database?
+- When creating a new name are we confident it's not already in use?

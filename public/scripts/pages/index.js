@@ -1,7 +1,7 @@
 const loadingEl = document.querySelector('.js-loading')
 
 const onIntersection = () => {
-  fetch('/api/new-tesselations')
+  fetch('/api/create-new')
     .then(response => response.json())
     .then(data => {
       let newCards = [];

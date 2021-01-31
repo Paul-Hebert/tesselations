@@ -6,7 +6,7 @@ import {fileURLToPath} from 'url';
 import {indexRouter} from './routes/index.js';
 import {detailsRouter} from './routes/details.js';
 import {downloadRouter} from './routes/download.js';
-import {newTesselationsRouter} from './routes/api/new-tesselations.js';
+import {createNewRouter} from './routes/api/create-new.js';
 import http from 'http';
 
 // Stub out Node features not available when using ES Modules
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/details/', detailsRouter);
 app.use('/download/', downloadRouter);
-app.use('/api/new-tesselations', newTesselationsRouter);
+app.use('/api/create-new', createNewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
