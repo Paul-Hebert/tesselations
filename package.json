@@ -7,7 +7,7 @@
     "start": "node ./app.js",
     "clean-start": "npm run clean && npm run start",
     "dev": "npx nodemon --ignore 'tesselations/**/*.json'",
-    "clean-dev": "npm run clean && npm run npx nodemon ./app.js --ignore 'tesselations/**/*.json'"
+    "clean-dev": "npm run clean && npm run dev"
   },
   "type": "module",
   "dependencies": {
