@@ -1,6 +1,6 @@
 .code-block {
   position: relative;
-  border: 1px solid var(--transparent-gray);
+  border: 3px solid var(--transparent-gray);
 }
 
 .code-block__code {
@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: var(--transparent-gray);
+  z-index: 1;
 }
 
 

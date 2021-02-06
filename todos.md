@@ -4,9 +4,9 @@
 - Maybe use Vite?
 
 ## Code quality
-- Make editor module accept params instead of running its own queries
 - Tests
 - Linting
+- Abstract out CSS vars
 
 ## Teselations
 
@@ -26,7 +26,6 @@
 - Cards
   - Improve focus styles
   - Add edit/download buttons
-- Button styles
 - Improve details page design
 - Add app header
 - Improve "hero" section
