@@ -11,13 +11,21 @@ editor({
   downloadLink: document.querySelector('.js-editor-download-link'),
 })
 
-const copyButton = document.querySelector('.js-copy-button');
+const cssCopyButton = document.querySelector('.js-css-copy-button');
+const svgCopyButton = document.querySelector('.js-svg-copy-button');
 const cssSourceEl = document.querySelector('.js-css-source');
+const svgSourceEl = document.querySelector('.js-svg-source');
 
 const toastInstance = toast(document.querySelector('.js-toast'));
 
-copyButton.addEventListener('click', () => { 
+cssCopyButton.addEventListener('click', () => { 
   copyCode(cssSourceEl).then(() => {
-    toastInstance.show('CSS copied to clipboard.');
+    toastInstance.show('CSS code copied to clipboard.');
+  })
+});
+
+svgCopyButton.addEventListener('click', () => { 
+  copyCode(svgSourceEl).then(() => {
+    toastInstance.show('SVG code copied to clipboard.');
   })
 });

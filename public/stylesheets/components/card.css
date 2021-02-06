@@ -8,12 +8,13 @@
 }
 
 .card__title {
-  background-color: var(--transparent-black);
-  color: #fff;
+  background-color: var(--transparent-white);
+  /* color: #000; */
   padding: 0.5em;
   z-index: 1;
   line-height: 1.2;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .card__primary-action {

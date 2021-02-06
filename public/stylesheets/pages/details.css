@@ -1,16 +1,28 @@
+.details__title {
+  text-transform: capitalize;
+}
+
 .details__example {
   width: 100%;
   height: min(20em, 40vh);
 }
 
-.details__content > * + * {
-  margin-top: 1em;
+.details__section {
+  margin-top: 1.5em;
+}
+
+.details__section > * + * {
+  margin-top: 0.8em;
 }
 
 .edit-form {
   display: grid;
   gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+}
+
+.edit-form label {
+  font-weight: bold;
 }
 
 .edit-form input {

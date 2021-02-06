@@ -1,6 +1,6 @@
 .code-block {
   position: relative;
-  border: 1px solid var(--transparent-black);
+  border: 1px solid var(--transparent-gray);
 }
 
 .code-block__code {
@@ -16,5 +16,17 @@
   padding: 1em;
   display: flex;
   align-items: center;
-  background-color: var(--transparent-black);
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--transparent-gray);
+}
+
+
+.code-block__actions > * {
+  display: block;
+}
+
+.code-block__actions > * + * {
+  display: block;
+  margin-top: 1em;
 }

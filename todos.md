@@ -8,7 +8,7 @@
 - Tests
 - Linting
 
-## Randomization
+## Teselations
 
 - Add curved sides
 - Add more randomness to # of points
@@ -22,15 +22,22 @@
 ## App UI
 
 - better color pickers?
-- Improve focus styles on cards
+  - https://shoelace.style/components/color-picker
+- Cards
+  - Improve focus styles
+  - Add edit/download buttons
+- Button styles
 - Improve details page design
 - Add app header
 - Improve "hero" section
 - Download link
+  - Reinstate?
   - Use tiled download
 - Add "create new" feature
+- Add about page?
 - Lazy loading
   - better loading indicator. 
+  - intersection observer could track listings instead of a loading element?
   - Reset page position for screen readers/keyboard users after load?
   - Reuse existing tesselations before making more
 

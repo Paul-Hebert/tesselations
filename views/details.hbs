@@ -1,47 +1,25 @@
 <div class="details container">
-  <div class="details__content">
-    <h1>{{name}} tesselation</h1>
+  <h1 class="details__title">{{name}} tesselation</h1>
 
-    <div 
-      class="details__example js-editor-background-target" 
-      style="{{css}}">
-    </div>
+  <section 
+    class="details__section details__example js-editor-background-target" 
+    style="{{css}}">
+  </section>
 
-    {{!-- <h2>
-      SVG:
-    </h2>
-
-    <div class="js-editor-svg-target">
-      {{{svg}}}
-    </div> --}}
-
-    {{!-- <pre><code class="js-editor-svg-code-target">{{svg}}</code></pre>
-
-    <a href="{{downloadUrl}}" download class="js-editor-download-link">Download</a> --}}
-
-    <h2>CSS:</h2>
-
-    <div class="code-block">
-      <pre class="code-block__code"><code class="js-editor-css-code-target js-css-source">{{css}}</code></pre>
-
-      <div class="code-block__actions">
-        <button class=" code-block__button js-copy-button">Copy CSS</button>
-      </div>
-    </div>
-
+  <section class="details__section">
     <h2>Edit Tesselation</h2>
-    
+  
     <form method="GET" class="edit-form js-editor">
       <label for="fill">
-        Fill Color:
+        Fill Color
         <input type="color" value="{{data.fill}}" name="fill" id="fill">
       </label>
       <label for="stroke">
-        Stroke Color:
+        Stroke Color
         <input type="color" value="{{data.stroke}}" name="stroke" id="stroke">
       </label>
       <label for="strokeWidth">
-        Stroke Width:
+        Stroke Width
         <input type="range" value="{{data.strokeWidth}}" name="strokeWidth" id="strokeWidth" min="1" max="20" step="0.1">
       </label>
       <label for="size">
@@ -49,7 +27,44 @@
         <input type="range" value="{{data.size}}" name="size" id="size" min="5" max="500" step="1">
       </label>
     </form>
-  </div>
+  </section>
+
+  <section class="details__section">
+    <h2>CSS Code</h2>
+
+    <div class="code-block">
+      <pre class="code-block__code"><code class="js-editor-css-code-target js-css-source">{{css}}</code></pre>
+
+      <div class="code-block__actions">
+        <button class="code-block__button js-css-copy-button">Copy CSS</button>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="details__section">
+    <h2>
+      SVG Code
+    </h2>
+
+    {{!-- <div class="js-editor-svg-target">
+      {{{svg}}}
+    </div> --}}
+
+    <div class="code-block">
+      <pre class="code-block__code"><code class="js-editor-svg-code-target js-svg-source">{{svg}}</code></pre>
+
+      <div class="code-block__actions">
+        <a href="{{downloadUrl}}" download class="code-block__button js-editor-download-link">
+          Download
+        </a>
+
+        <button class="code-block__button js-svg-copy-button">Copy SVG</button>
+      </div>
+    </div>
+
+  </section>
+ 
 </div>
 
 <script>

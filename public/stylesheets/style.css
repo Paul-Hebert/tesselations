@@ -1,5 +1,6 @@
 :root {
-  --transparent-black: rgba(0, 0, 0, 0.8);
+  --transparent-white: rgba(255, 255, 255, 0.9);
+  --transparent-gray: rgba(240, 240, 240, 0.9);
 }
 
 html, body {
