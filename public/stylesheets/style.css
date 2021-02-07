@@ -1,6 +1,12 @@
 :root {
+  --white: #fff;
   --transparent-white: rgba(255, 255, 255, 0.9);
   --transparent-gray: rgba(240, 240, 240, 0.9);
+
+  --interactive-hue: 203;
+  --interactive-saturation: 57%;
+  --interactive-lightness: 41%;
+  --color-interactive: hsl(var(--interactive-hue), var(--interactive-saturation), var(--interactive-lightness));
 }
 
 html, body {
@@ -9,7 +15,7 @@ html, body {
 }
 
 body {
-  background: #fff;
+  background: var(--white);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";}
 
 * {

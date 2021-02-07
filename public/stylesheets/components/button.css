@@ -1,13 +1,23 @@
+:root {
+  --button-color: var(--color-interactive);
+  --button-color-hover: hsl(var(--interactive-hue), var(--interactive-saturation), 31%);
+  --button-border-color: hsl(var(--interactive-hue), var(--interactive-saturation), 60%);
+  --button-border-color-hover: var(--button-color);
+  --button-bg-color: var(--white);
+  --button-bg-color-hover: hsl(var(--interactive-hue), var(--interactive-saturation), 95%);
+  --button-focus-color: hsl(var(--interactive-hue), var(--interactive-saturation), 80%);
+}
+
 .button {
-  background-color: #fff;
+  background-color: var(--button-bg-color);
   border-radius: 0.2em;
-  border: hsl(203, 57%, 60%) 0.1em solid;
+  border: var(--button-border-color)  0.1em solid;
   cursor: pointer;
   font-family: inherit;
   font-size: 1em;
   padding: 0.5em 1em;
   text-decoration: none;
-  color: hsl(203, 57%, 41%);
+  color: var(--button-color);
   transition-property: background-color, border-color, color;
   transition-timing-function: ease-out;
   transition-duration: 0.2s;
@@ -15,9 +25,9 @@
 }
 
 .button:hover {
-  background-color: hsl(203, 57%, 95%);
-  border-color: hsl(203, 57%, 41%);
-  color: hsl(203, 57%, 31%);
+  background-color: var(--button-bg-color-hover);
+  border-color: var(--button-border-color-hover);
+  color:  var(--button-color-hover);
 }
 
 .button:focus {
@@ -32,7 +42,7 @@
   right: -0.5em;
   bottom: -0.5em;
   top: -0.5em;
-  background-color: hsl(203, 57%, 80%);
+  background-color: var(--button-focus-color);
   z-index: -1;
   opacity: 0;
   transition: opacity 0.2s ease-out;
