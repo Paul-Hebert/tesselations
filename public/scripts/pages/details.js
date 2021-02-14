@@ -19,13 +19,13 @@ const svgSourceEl = document.querySelector('.js-svg-source');
 const toastInstance = toast(document.querySelector('.js-toast'));
 
 cssCopyButton.addEventListener('click', () => { 
-  copyCode(cssSourceEl).then(() => {
+  copyCode(cssSourceEl.innerText).then(() => {
     toastInstance.show('CSS code copied to clipboard.');
-  })
+  });
 });
 
 svgCopyButton.addEventListener('click', () => { 
-  copyCode(svgSourceEl).then(() => {
+  copyCode(svgSourceEl.innerText).then(() => {
     toastInstance.show('SVG code copied to clipboard.');
-  })
+  });
 });

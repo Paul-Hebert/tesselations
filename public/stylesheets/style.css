@@ -1,6 +1,6 @@
 :root {
   --white: #fff;
-  --transparent-white: rgba(255, 255, 255, 0.9);
+  --transparent-white: rgba(255, 255, 255, 0.95);
   --transparent-gray: rgba(240, 240, 240, 0.9);
 
   --interactive-hue: 203;

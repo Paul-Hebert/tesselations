@@ -1,12 +1,22 @@
-<article class="card">
-  <h2 class="card__title">
-    <a href="/details/{{this.id}}" class="card__primary-action">
+<article class="card js-card">
+  <header class="card__header">
+    <h2 class="card__title">
       {{this.name}}
-    </a>
-  </h2>
+    </h2>
 
-  
-  <div class="card__graphic" style="{{this.css}};">
+    <div class="card__actions">
+      {{!-- TODO: Add screen reader text to avoid duplicate links? --}}
+      <a href="/details/{{this.id}}" class="button card__primary-action">
+        Edit
+      </a>
+
+      <button class="button card__secondary-action js-card-copy-css">
+        Copy CSS
+      </button>
+    </div>
+  </header>
+
+  <div class="card__graphic js-card-graphic" style="{{this.css}}">
     {{!-- TODO: Screen reader description --}}
   </div>
 </article>

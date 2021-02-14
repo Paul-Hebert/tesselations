@@ -1,3 +1,3 @@
-export function copyCode(sourceEl) {
-  return navigator.clipboard.writeText(sourceEl.innerText);
+export function copyCode(text) {
+  return navigator.clipboard.writeText(text);
 }

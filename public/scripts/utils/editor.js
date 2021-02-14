@@ -1,6 +1,5 @@
 import {skeleton} from './skeleton.js';
 import {css} from './css.js';
-import {urlString} from './url-string.js';
 
 export function editor({editor, backgroundTarget, svgTarget, svgCodeTarget, cssCodeTarget, downloadLink }) {
   [...editor.querySelectorAll('input')].forEach(input => {

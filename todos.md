@@ -4,11 +4,12 @@
 - Maybe use Vite?
 
 ## Code quality
+
 - Tests
 - Linting
 - Abstract out CSS vars
 
-## Teselations
+## Tesselations
 
 - Add curved sides
 - Add more randomness to # of points
@@ -35,13 +36,13 @@
 - Add "create new" feature
 - Add about page?
 - Lazy loading
-  - better loading indicator. 
+  - better loading indicator.
   - intersection observer could track listings instead of a loading element?
   - Reset page position for screen readers/keyboard users after load?
   - Reuse existing tesselations before making more
 
 ## Security
- 
+
 - Does the way I'm merging the query string leave XSS vulns? I should probably check for certain properties and validate them
 
 ## Issues
