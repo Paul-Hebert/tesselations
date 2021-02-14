@@ -23,7 +23,7 @@
 ## App UI
 
 - better color pickers?
-  - https://shoelace.style/components/color-picker
+  - Use HSL pickers created for blog post
 - Cards
   - Improve focus styles
   - Add edit/download buttons
@@ -31,8 +31,8 @@
 - Add app header
 - Improve "hero" section
 - Download link
-  - Reinstate?
-  - Use tiled download
+  - Use tiled download?
+  - Add to home page?
 - Add "create new" feature
 - Add about page?
 - Lazy loading
