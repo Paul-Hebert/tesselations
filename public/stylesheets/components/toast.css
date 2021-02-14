@@ -1,12 +1,23 @@
 .toast {
-  background: var(--white);
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  background: hsl(
+    var(--interactive-hue),
+    100%,
+    99.5%
+  );
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  border: 0.1em solid hsl(
+    var(--interactive-hue),
+    70%,
+    70%
+  );  
+  border-radius: 0.2em;
+  color: var(--color-interactive);
   cursor: pointer;
   opacity: 0;
   position: fixed;
   right: 3em;
   padding: 1em;
-  transition: opacity ease-out 0.4s;
+  transition: opacity ease-out 0.4s, 0s 0.4s top;
   z-index: 1;
   top: -1000px;
 }
@@ -14,4 +25,5 @@
 .toast.is-visible {
   opacity: 1;
   top: 3em;
+  transition: opacity ease-out 0.4s, 0s top;
 }

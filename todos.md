@@ -27,6 +27,12 @@
 - Cards
   - Improve focus styles
   - Add edit/download buttons
+- Buttons
+  - Confirm a11y in all states
+- Toaster
+  - Improve styles
+    - differentiate from button
+    - hover? focus?
 - Improve details page design
 - Add app header
 - Improve "hero" section
