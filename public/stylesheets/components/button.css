@@ -73,7 +73,11 @@
   color: var(--button-color-active);
 }
 
-.button:focus {
+.button:focus:not(:focus-visible) {
   outline: none;
-  box-shadow: 0 0 0 0.5em var(--button-focus-color);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25em var(--button-focus-color);
 }
