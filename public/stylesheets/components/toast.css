@@ -6,10 +6,10 @@
   );
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   border: 0.1em solid hsl(
-    var(--interactive-hue),
-    70%,
-    70%
-  );  
+    var(--interactive-hue), 
+    var(--interactive-saturation), 
+    calc(var(--interactive-lightness) + 20%)
+  );
   border-radius: 0.2em;
   color: var(--color-interactive);
   cursor: pointer;
@@ -18,7 +18,7 @@
   right: 3em;
   padding: 1em;
   transition: opacity ease-out 0.4s, 0s 0.4s top;
-  z-index: 1;
+  z-index: var(--toast-z-index);
   top: -1000px;
 }
 

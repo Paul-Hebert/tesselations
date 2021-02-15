@@ -7,6 +7,9 @@
   --interactive-saturation: 57%;
   --interactive-lightness: 41%;
   --color-interactive: hsl(var(--interactive-hue), var(--interactive-saturation), var(--interactive-lightness));
+
+  --card-z-index: 1;
+  --toast-z-index: 10;
 }
 
 html, body {
