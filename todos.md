@@ -19,6 +19,7 @@
 - Screen reader/meta description
 - Ability to pass in options
 - Checkerboard style
+- Add created date
 
 ## App UI
 
@@ -26,7 +27,6 @@
   - Use HSL pickers created for blog post
 - Cards
   - Improve focus styles
-  - Add edit/download buttons
 - Buttons
   - Confirm a11y in all states
 - Toaster
@@ -35,6 +35,7 @@
     - hover? focus?
 - Improve details page design
 - Add app header
+  - hover/focus styles
 - Improve "hero" section
 - Download link
   - Use tiled download?
@@ -42,7 +43,7 @@
 - Add "create new" feature
 - Add about page?
 - Lazy loading
-  - better loading indicator.
+  - better loading indicator. Skeletons?
   - intersection observer could track listings instead of a loading element?
   - Reset page position for screen readers/keyboard users after load?
   - Reuse existing tesselations before making more

@@ -1,0 +1,10 @@
+{
+  "height": 96,
+  "width": 95,
+  "size": 10,
+  "fill": "#e7a8c2",
+  "stroke": "#347259",
+  "strokeWidth": 2,
+  "commands": "M 0 0 l 0 11 l 93 3 l 2 -14 l -20 21 l -18 48 l 12 1 l -8 22 l 34 4 l -2 14 l -93 -3 l 0 -11 l -34 -4 l 8 -22 l -12 -1 l 18 -48 l 20 -21 Z",
+  "version": "1.0.0"
+}

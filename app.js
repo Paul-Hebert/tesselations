@@ -7,6 +7,7 @@ import {indexRouter} from './routes/index.js';
 import {detailsRouter} from './routes/details.js';
 import {downloadRouter} from './routes/download.js';
 import {createNewRouter} from './routes/api/create-new.js';
+import {getSavedAsCss} from './utils/tesselations/get-saved-as-css.js'
 import http from 'http';
 
 // Stub out Node features not available when using ES Modules
@@ -24,7 +25,10 @@ app.engine( 'hbs', hbs( {
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set( 'view engine', 'hbs' );
+app.set('view engine', 'hbs');
+
+// Set global template vars
+app.locals.logoCss = getSavedAsCss('logo')
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));

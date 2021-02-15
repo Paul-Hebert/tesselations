@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
 
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/components/button.css' />
-    <link rel='stylesheet' href='/stylesheets/components/container.css' />
-    <link rel='stylesheet' href='/stylesheets/components/header.css' />
-    <link rel='stylesheet' href='/stylesheets/components/toast.css' />
-    {{#each stylesheets}}
-      <link rel='stylesheet' href='/stylesheets/{{this}}.css' />
-    {{/each}}
-  </head>
-  <body>
-    <header class="header">
-      <a href="/">Tesselations</a>
-    </header>
+<head>
+  <title>{{title}}</title>
 
-    <div class="toast js-toast" role="status"></div>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/components/button.css' />
+  <link rel='stylesheet' href='/stylesheets/components/container.css' />
+  <link rel='stylesheet' href='/stylesheets/components/header.css' />
+  <link rel='stylesheet' href='/stylesheets/components/toast.css' />
+  {{#each stylesheets}}
+  <link rel='stylesheet' href='/stylesheets/{{this}}.css' />
+  {{/each}}
+</head>
 
-    {{{body}}}
-  </body>
+<body>
+  <header class="header">
+    <a href="/" class="header__link logo">
+      <span class="logo__mark" style="{{logoCss}}">
+        {{!-- TODO: Screen reader description? --}}
+      </span>
+      Tesselations
+    </a>
+
+    <a href="#" class="header__link">
+      About
+    </a>
+
+    <a href="#" class="header__link">
+      Create New
+    </a>
+  </header>
+
+  <div class="toast js-toast" role="status"></div>
+
+  {{{body}}}
+</body>
+
 </html>
