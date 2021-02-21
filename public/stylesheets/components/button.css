@@ -64,7 +64,7 @@
 .button:hover {
   background-color: var(--button-bg-color-hover);
   border-color: var(--button-border-color-hover);
-  color:  var(--button-color-hover);
+  color: var(--button-color-hover);
 }
 
 .button:active {
@@ -73,11 +73,16 @@
   color: var(--button-color-active);
 }
 
-.button:focus:not(:focus-visible) {
-  outline: none;
-}
+/**
+ * These extra focus-related styles are to progressively enhance :focus-visible
+ * @see https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+ */
 
-.button:focus-visible {
+.button:focus {
   outline: none;
   box-shadow: 0 0 0 0.25em var(--button-focus-color);
+}
+
+.button:focus:not(:focus-visible) {
+  box-shadow: none;
 }
