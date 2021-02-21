@@ -9,19 +9,42 @@
 }
 
 .header__link {
+  border-radius: 0.2em;
   color: var(--color-interactive);
-  margin-left: 1.5em;
+  margin-left: 1em;
+  padding: 0.5em;
+  transition-property: color, box-shadow, text-decoration-thickness;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out; 
+  text-decoration-thickness: 0.1em;
 }
 
 .header__link:hover {
-  /* TODO */
+  color: var(--button-color-hover);
+  text-decoration-thickness: 0.2em;
 }
 
+/**
+ * These extra focus-related styles are to progressively enhance :focus-visible
+ * @see https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+ */
+
 .header__link:focus {
-  /* TODO */
+  outline: none;
+  box-shadow: 0 0 0 0.25em var(--button-focus-color);
+}
+
+.header__link:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.header__link:active {
+  color: var(--button-color-hover);
 }
 
 .logo {
+  border-color: transparent;
+  padding: 0.3em;
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -31,19 +54,24 @@
 }
 
 .logo__mark {
-  font-size: 2em;
+  background-position-y: 7px;
+  border-radius: 0.2rem;
+  font-size: 1.5em;
   height: 1em;
   width: 1em;
   margin-right: 0.25em;
-  animation-duration: 40s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-name: background-slide;
   animation-timing-function: linear;
   animation-play-state: paused;
+  filter: grayscale(90%);
+  transition: 0.2s ease-out filter;
 }
 
 .logo:hover .logo__mark {
   animation-play-state: running;
+  filter: grayscale(0%);
 }
 
 @keyframes background-slide {

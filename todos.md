@@ -8,6 +8,10 @@
 - Tests
 - Linting
 - Abstract out CSS vars
+  - Transitions
+  - Border radius
+  - sizing
+  - colors
 
 ## Tesselations
 
@@ -34,8 +38,6 @@
     - differentiate from button
     - hover? focus?
 - Improve details page design
-- Add app header
-  - hover/focus styles
 - Improve "hero" section
 - Download link
   - Use tiled download?
