@@ -6,6 +6,8 @@ import {fileURLToPath} from 'url';
 import {indexRouter} from './routes/index.js';
 import {detailsRouter} from './routes/details.js';
 import {downloadRouter} from './routes/download.js';
+import {newRouter} from './routes/new.js';
+import {aboutRouter} from './routes/about.js';
 import {createNewRouter} from './routes/api/create-new.js';
 import {getSavedAsCss} from './utils/tesselations/get-saved-as-css.js'
 import http from 'http';
@@ -35,6 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/details/', detailsRouter);
+app.use('/about/', aboutRouter);
+app.use('/new/', newRouter);
 app.use('/download/', downloadRouter);
 app.use('/api/create-new', createNewRouter);
 app.use('/api/fetch-more', createNewRouter);
@@ -52,7 +56,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('pages/error');
 });
 
 /**

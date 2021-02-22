@@ -15,7 +15,7 @@ const data = {
 }
 
 indexRouter.get('/', function(req, res, next) {
-  res.render('index', { 
+  res.render('pages/index', { 
     title: 'Tesselations', 
     stylesheets: [
       'components/hero',

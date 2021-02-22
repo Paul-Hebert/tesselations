@@ -13,7 +13,7 @@ detailsRouter.get('/:id', function(req, res, next) {
   const svg = skeleton(mergedData);
   const name = idToName(req.params.id);
   
-  res.render('details', { 
+  res.render('pages/details', { 
     title: `${name} tesselation`, 
     stylesheets: ['pages/details', 'components/code-block'],
     id: req.params.id,
