@@ -30,35 +30,63 @@ function generateCommandsForSide(length, variance, mainAxis, secondAxis) {
   // along the secondary axis.
   // For now all of the secondary axis movement has to add up to 0,
   // but that may change in the future.
-  let secondaryAxisDrift = 0;
+  let secondAxisDrift = 0;
 
   commands.forEach(function(command, index, array){
+    // Decide whether to do a straight line or a curve
+    // TODO: in the future write more thoughful logic for this
+    command.type = randomBool() ? "L" : "Q";
+
+    // First we firgure out our endpoint
     if (index === array.length - 1){ 
-      command[secondAxis] = secondaryAxisDrift * -1;
+      // If this is our last command make sure we come back to the corner
+      command[secondAxis] = secondAxisDrift * -1;
     } else {
+      // Otherwise we can create a random amount of change within our bounds
       const multiplier = randomBool() ? 1 : -1;
       const change = Math.round(Math.random() * variance/4 * multiplier);
-      if(change + secondaryAxisDrift > variance) { variance * -1; }
-      secondaryAxisDrift += change;
+      // Ensure we don't go too far in one direction.
+      if(change + secondAxisDrift > variance) { variance * -1; }
+      secondAxisDrift += change;
       command[secondAxis] = change;
+    }
+
+    // If this is a quadratic curve, figure out the relative position of our
+    // control point.
+    if(command.type === "Q") {
+      command.control = {};
+      command.control[mainAxis] = Math.round(command[mainAxis] * Math.random());
+      command.control[secondAxis] = Math.round(command[secondAxis] + command[secondAxis] * Math.random());
     }
  });
 
  return commands;
 }
 
-function addSide({ commands, position, reverse = false}) {
+function addSide({ commands, position, mainAxis, secondAxis, reverse = false}) {
   const multiplier = reverse ? -1 : 1;
-  const currentPosition = position;
+  let startPoint = position;
+  let endPoint = {};
+  let controlPoint = {};
   if(reverse) {
     commands = commands.reverse();
   }
 
   return commands.map(command => {
-    currentPosition.x += command.x * multiplier;
-    currentPosition.y += command.y * multiplier;
+    endPoint.x = startPoint.x + command.x * multiplier;
+    endPoint.y = startPoint.y + command.y * multiplier;
 
-    return `L ${currentPosition.x} ${currentPosition.y}`;
+    if(command.type === "Q") {
+      controlPoint[mainAxis] = startPoint[mainAxis] + command.control[mainAxis];
+      controlPoint[secondAxis] =  startPoint[secondAxis] + command.control[secondAxis];
+    }
+
+    startPoint = endPoint;
+    if(command.type === "Q") {
+      return `${command.type}${controlPoint.x},${controlPoint.y} ${endPoint.x},${endPoint.y}`;
+    } else {
+      return `${command.type}${endPoint.x},${endPoint.y}`;
+    }
   });
 }
 
@@ -74,11 +102,11 @@ export function commands(width, height) {
   const sideCommands = generateCommandsForSide(height, width, 'y', 'x');
 
   return [
-    "M 0 0",
-    ...addSide({commands: endCommands, position: {x: 0, y: 0}}),
-    ...addSide({commands: sideCommands, position: {x: width, y: 0}}),
-    ...addSide({commands: endCommands, position: {x: width, y: height}, reverse: true}),
-    ...addSide({commands: sideCommands, position: {x: 0, y: height}, reverse:  true}),
+    "M 0,0",
+    ...addSide({commands: endCommands, position: {x: 0, y: 0}, mainAxis: 'x', secondAxis: 'y'}),
+    ...addSide({commands: sideCommands, position: {x: width, y: 0}, mainAxis: 'y', secondAxis: 'x'}),
+    ...addSide({commands: endCommands, position: {x: width, y: height}, reverse: true, mainAxis: 'x', secondAxis: 'y'}),
+    ...addSide({commands: sideCommands, position: {x: 0, y: height}, reverse:  true, mainAxis: 'y', secondAxis: 'x'}),
     "Z"
   ].join(' ');
 }

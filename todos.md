@@ -5,6 +5,7 @@
 
 ## Code quality
 
+- Better comments
 - Tests
 - Linting
 - Abstract out CSS vars
@@ -63,3 +64,4 @@
 - Should server side code by async?
 - Switch data storage to database?
 - When creating a new name are we confident it's not already in use?
+- Curve control points are sometimes too extreme leading to two segmented shapes
