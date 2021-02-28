@@ -47,15 +47,18 @@ function generateCommandsForSide(length, variance, mainAxis, secondAxis) {
  return commands;
 }
 
-function addSide({ commands, reverse = false}) {
+function addSide({ commands, position, reverse = false}) {
   const multiplier = reverse ? -1 : 1;
-
+  const currentPosition = position;
   if(reverse) {
     commands = commands.reverse();
   }
 
   return commands.map(command => {
-    return `l ${command.x * multiplier} ${command.y * multiplier}`
+    currentPosition.x += command.x * multiplier;
+    currentPosition.y += command.y * multiplier;
+
+    return `L ${currentPosition.x} ${currentPosition.y}`;
   });
 }
 
@@ -72,10 +75,10 @@ export function commands(width, height) {
 
   return [
     "M 0 0",
-    ...addSide({commands: endCommands}),
-    ...addSide({commands: sideCommands}),
-    ...addSide({commands: endCommands, reverse: true}),
-    ...addSide({commands: sideCommands, reverse:  true}),
+    ...addSide({commands: endCommands, position: {x: 0, y: 0}}),
+    ...addSide({commands: sideCommands, position: {x: width, y: 0}}),
+    ...addSide({commands: endCommands, position: {x: width, y: height}, reverse: true}),
+    ...addSide({commands: sideCommands, position: {x: 0, y: height}, reverse:  true}),
     "Z"
   ].join(' ');
 }
