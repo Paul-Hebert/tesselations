@@ -16,6 +16,7 @@
 ## Tesselations
 
 - Add curved sides
+  - Use absolute positioning to make this simpler
 - Add more randomness to # of points
 - Fine tune color generation
 - Add rotation
