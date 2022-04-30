@@ -1,30 +1,47 @@
 <div class="details container">
   <h1 class="details__title">{{name}} tesselation</h1>
 
-  <section 
-    class="details__section details__example js-editor-background-target" 
-    style="{{css}}">
+  <section
+    class="details__section details__example js-editor-background-target"
+    style="{{css}}"
+  >
   </section>
 
   <section class="details__section">
     <h2>Edit Tesselation</h2>
-  
+
     <form method="GET" class="edit-form js-editor">
       <label for="fill">
         Fill Color
-        <input type="color" value="{{data.fill}}" name="fill" id="fill">
+        <input type="color" value="{{data.fill}}" name="fill" id="fill" />
       </label>
       <label for="stroke">
         Stroke Color
-        <input type="color" value="{{data.stroke}}" name="stroke" id="stroke">
+        <input type="color" value="{{data.stroke}}" name="stroke" id="stroke" />
       </label>
       <label for="strokeWidth">
         Stroke Width
-        <input type="range" value="{{data.strokeWidth}}" name="strokeWidth" id="strokeWidth" min="1" max="20" step="0.1">
+        <input
+          type="range"
+          value="{{data.strokeWidth}}"
+          name="strokeWidth"
+          id="strokeWidth"
+          min="1"
+          max="20"
+          step="0.1"
+        />
       </label>
       <label for="size">
         Size
-        <input type="range" value="{{data.size}}" name="size" id="size" min="5" max="500" step="1">
+        <input
+          type="range"
+          value="{{data.size}}"
+          name="size"
+          id="size"
+          min="5"
+          max="500"
+          step="1"
+        />
       </label>
     </form>
   </section>
@@ -33,7 +50,9 @@
     <h2>CSS Code</h2>
 
     <div class="code-block">
-      <pre class="code-block__code"><code class="js-editor-css-code-target js-css-source">{{css}}</code></pre>
+      <pre class="code-block__code"><code
+          class="js-editor-css-code-target js-css-source"
+        >{{css}}</code></pre>
 
       <div class="code-block__actions">
         <button class="button js-css-copy-button">Copy CSS</button>
@@ -41,23 +60,36 @@
     </div>
   </section>
 
-  
   <section class="details__section">
     <h2>
       SVG Code
     </h2>
 
-    {{!-- This is handy for SVG debugging  --}}
-    {{!-- <style>svg { overflow: visible; }use {display: none;}</style>
+    {{!-- This is handy for SVG debugging
+    <style>
+      svg {
+        overflow: visible;
+      }
+
+      use {
+        display: none;
+      }
+    </style>
     <div class="js-editor-svg-target">
       {{{svg}}}
     </div> --}}
 
     <div class="code-block">
-      <pre class="code-block__code"><code class="js-editor-svg-code-target js-svg-source">{{svg}}</code></pre>
+      <pre class="code-block__code"><code
+          class="js-editor-svg-code-target js-svg-source"
+        >{{svg}}</code></pre>
 
       <div class="code-block__actions">
-        <a href="{{downloadUrl}}" download class="button js-editor-download-link">
+        <a
+          href="{{downloadUrl}}"
+          download
+          class="button js-editor-download-link"
+        >
           Download
         </a>
 
@@ -66,10 +98,11 @@
     </div>
 
   </section>
- 
+
 </div>
 
 <script>
-  const baseData = {{{dataString}}};
+  const baseData =
+  {{{dataString}}};
 </script>
 <script src="/scripts/pages/details.js" type="module"></script>
