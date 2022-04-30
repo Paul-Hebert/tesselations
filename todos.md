@@ -52,10 +52,6 @@
   - Reset page position for screen readers/keyboard users after load?
   - Reuse existing tesselations before making more
 
-## Security
-
-- Does the way I'm merging the query string leave XSS vulns? I should probably check for certain properties and validate them
-
 ## Issues
 
 - Sometimes the strokes don't contrast well enough.
