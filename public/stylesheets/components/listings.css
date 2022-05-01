@@ -1,6 +1,6 @@
 .listings {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(clamp(15em, calc(15em + 5vw), 100%), 1fr));
   grid-auto-rows: 15em;
   grid-gap: 2em;
 }

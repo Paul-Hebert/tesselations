@@ -13,8 +13,9 @@
   background-color: var(--transparent-white);
   padding: 0.5em 1em;
   z-index: 1;
-  height: 3em;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
   align-items: center;
   justify-content: space-between;
 }

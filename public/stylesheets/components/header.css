@@ -1,5 +1,5 @@
 .header {
-  padding: 1em 2em;
+  padding: 1em clamp(1em, calc(1em + 1vw), 2em);
   z-index: 1;
   position: relative;
   background: var(--white);

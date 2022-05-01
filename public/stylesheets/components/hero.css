@@ -11,7 +11,7 @@
 }
 
 .hero__heading {
-  font-size: 4em;
+  font-size: clamp(2em, calc(2em + 2vw), 4em);
 }
 
 .hero__subhead {
